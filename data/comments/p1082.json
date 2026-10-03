@@ -1,0 +1,18 @@
+[
+ {
+  "id": 67,
+  "author": "Anonymous",
+  "author_url": "",
+  "date": "2017-03-17T06:06:43+05:30",
+  "parent": 0,
+  "content": "<p>Hi, I tried your code but it&#8217;s replacing $(configuration) to &#8216;debug&#8217;. Is there a way to avoid it.</p>\n"
+ },
+ {
+  "id": 68,
+  "author": "Ankit Vijay",
+  "author_url": "https://ankitvijaydotin.wordpress.com",
+  "date": "2017-03-17T08:07:05+05:30",
+  "parent": 67,
+  "content": "<p>You can, just change line<br />\nvar debugPropertyGroup =<br />\nproj.Xml.PropertyGroups.First(<br />\ne =&gt; e.Condition == &#8221; &#8216;$(Configuration)|$(Platform)&#8217; == &#8216;Debug|AnyCPU&#8217; &#8220;);<br />\nInstead of Debug, provide your own conifguration</p>\n"
+ }
+]

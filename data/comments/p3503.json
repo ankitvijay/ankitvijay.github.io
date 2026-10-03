@@ -1,0 +1,34 @@
+[
+ {
+  "id": 261,
+  "author": "Iain Ballard",
+  "author_url": "",
+  "date": "2018-01-15T19:32:44+10:00",
+  "parent": 0,
+  "content": "<p>&amp; and | are bitwise operators, not boolean.</p>\n"
+ },
+ {
+  "id": 262,
+  "author": "Ankit Vijay",
+  "author_url": "",
+  "date": "2018-01-15T19:56:00+10:00",
+  "parent": 261,
+  "content": "<p>HI @iainballard:disqus <code>&amp;</code>  and <code>|</code> are bit-wise operators when used with integers. But they can also be used as logical operators when used with Booleans. The example shows how these operators can be used for boolean evaluation.</p>\n<p>Refer: <a href=\"https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/operators\" rel=\"nofollow ugc\">https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/operators</a></p>\n<p>One may argue that is not the best practice and can lead to potential bugs. But as I said in my post it is available if any dev or team have a compelling use-case for it.</p>\n"
+ },
+ {
+  "id": 263,
+  "author": "Orion Edwards",
+  "author_url": "",
+  "date": "2018-01-15T20:07:00+10:00",
+  "parent": 0,
+  "content": "<p>I&#8217;ve written code using the bitwise &amp; and | with booleans before. I can&#8217;t remember the reason, but it was definitely legitimate and I think something like:</p>\n<p>// we&#8217;d like to open both files, but so long as we can open one we&#8217;re OK<br />\nif(openFirstFile() | openSecondFile()) {<br />\n   //at least one file is open so we can do something<br />\n}</p>\n"
+ },
+ {
+  "id": 266,
+  "author": "Swanand",
+  "author_url": "",
+  "date": "2018-01-16T09:02:00+10:00",
+  "parent": 0,
+  "content": "<p>Great tips Ankit. The only downside I see to the bitwise operators is someone reading your code (who does not know) may think it is a typo 🙂 and revert back to &amp;&amp; or ||, thereby defeating the purpose. Maybe a comment would help to explain why you used bitwise operators instead of logical operators in context.</p>\n"
+ }
+]

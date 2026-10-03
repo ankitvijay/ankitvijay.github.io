@@ -1,0 +1,18 @@
+[
+ {
+  "id": 314,
+  "author": "Volo",
+  "author_url": "",
+  "date": "2022-01-20T23:16:02+10:00",
+  "parent": 0,
+  "content": "<p>Great article, thanks!<br />\nWe faced the same pain on current project, but we use EF Core Cosmos DB provider (not SDK).<br />\nI can&#8217;t find the way we can use CosmosJsonDotNetSerializer in EF, do you think it&#8217;s possible?</p>\n"
+ },
+ {
+  "id": 315,
+  "author": "Ankit Vijay",
+  "author_url": "https://ankitvijay.net",
+  "date": "2022-01-21T06:18:11+10:00",
+  "parent": 314,
+  "content": "<p>Thanks, glad you liked the article. I have not used EF with Cosmos. But I&#8217;m sure there should be a way.</p>\n"
+ }
+]

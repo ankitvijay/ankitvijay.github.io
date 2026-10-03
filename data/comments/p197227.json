@@ -1,0 +1,18 @@
+[
+ {
+  "id": 309,
+  "author": "Martin Andersson",
+  "author_url": "",
+  "date": "2022-05-11T22:27:19+10:00",
+  "parent": 0,
+  "content": "<p>In your Note, it says &#8220;you do not need to supply a passphrase/ password.&#8221;<br />\nWe also found out the hard way (after two days of debugging/logging, et.c.) that in fact you SHOULD NOT provide a password, because that was what broke it. Really non-intuitive there.<br />\nThank you anyway for your helpful post.</p>\n"
+ },
+ {
+  "id": 470,
+  "author": "tutike2000",
+  "author_url": "",
+  "date": "2023-12-07T07:27:31+10:00",
+  "parent": 0,
+  "content": "<p>Sadly I&#8217;m just getting an &#8220;You do not have permission to view this directory&#8221; exception when trying to read the certificate. I can see the file when SSH-ing into the server</p>\n"
+ }
+]

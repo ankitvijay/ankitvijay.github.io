@@ -1,0 +1,18 @@
+[
+ {
+  "id": 1,
+  "author": "Rahul Rai",
+  "author_url": "http://rahulrai.in",
+  "date": "2016-05-06T07:54:36+00:00",
+  "parent": 0,
+  "content": "<p>Nice write-up! Brief and to the point. Please keep posting your tips!!</p>\n"
+ },
+ {
+  "id": 2,
+  "author": "vijayankit",
+  "author_url": "https://ankitvijaydotin.wordpress.com",
+  "date": "2016-05-06T08:33:40+00:00",
+  "parent": 1,
+  "content": "<p>Thanks Rahul. 🙂</p>\n"
+ }
+]

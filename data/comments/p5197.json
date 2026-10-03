@@ -1,0 +1,10 @@
+[
+ {
+  "id": 302,
+  "author": "Afew",
+  "author_url": "",
+  "date": "2022-01-18T09:49:27+10:00",
+  "parent": 0,
+  "content": "<p>Exactly the same experience here.  A 100+ project solution in Visual Studio 2019 with Resharer is unbearably slow.  Disabling Resharper helped but then we&#8217;re left with the incompetent mess that is the Visual Studio test runner.  After moving over to Rider the the most obvious thing change is how much more responsive in general the IDE is.  Of course fully integrated test runner, full resharper built-in and a powerful debugger are also huge improvements.  Rider certainly isn&#8217;t perfect, I think DB projects are still not fully supported, some of the UI design is messy/confusing and search features seem to insist on returning irrelevant results that just create noise.  I don&#8217;t get why you (and so many others) always feel the need to tell us you still love Visual Studio.  I detest it. It is an antiquated, slow monstrosity that is slowly getting worse with every new version.  If I never have to go back I will be very happy.</p>\n"
+ }
+]
