@@ -1,0 +1,2 @@
+{{- $names := index (site.Data.terms | default dict) .Data.Plural | default dict -}}
+{{- index $names .Data.Term | default .Title -}}

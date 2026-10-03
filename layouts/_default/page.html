@@ -1,0 +1,37 @@
+{{ define "main" }}
+<article class="post">
+  <header>
+    <h1>{{ .Title }}</h1>
+    {{ if eq .Section "posts" }}
+    <p class="meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+      {{ with .GetTerms "category" }} · {{ range $i, $t := . }}{{ if $i }}, {{ end }}<a href="{{ $t.RelPermalink }}">{{ partial "term-name.html" $t }}</a>{{ end }}{{ end }}
+    </p>
+    {{ end }}
+  </header>
+  <div class="content">
+    {{ .Content }}
+  </div>
+  {{ with .GetTerms "tag" }}
+  <p class="tags">{{ range . }}<a href="{{ .RelPermalink }}">#{{ partial "term-name.html" . }}</a> {{ end }}</p>
+  {{ end }}
+</article>
+{{ if eq .Section "posts" }}
+<nav class="pager">
+  {{ with .PrevInSection }}<a href="{{ .RelPermalink }}">&larr; {{ .Title }}</a>{{ else }}<span></span>{{ end }}
+  {{ with .NextInSection }}<a href="{{ .RelPermalink }}">{{ .Title }} &rarr;</a>{{ end }}
+</nav>
+{{ with .Params.wp_id }}{{ with index site.Data.comments (printf "p%d" (int .)) }}
+<section class="comments">
+  <h2>{{ len . }} comment{{ if ne (len .) 1 }}s{{ end }}</h2>
+  <p class="note">Comments were carried over from the previous site and are closed.</p>
+  {{ range . }}
+  <div class="comment{{ if .parent }} reply{{ end }}" id="comment-{{ .id }}">
+    <p class="comment-meta"><strong>{{ .author }}</strong> · <time>{{ (time .date).Format "January 2, 2006" }}</time></p>
+    <div>{{ .content | safeHTML }}</div>
+  </div>
+  {{ end }}
+</section>
+{{ end }}{{ end }}
+{{ end }}
+{{ end }}

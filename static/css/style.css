@@ -1,0 +1,75 @@
+:root {
+  --bg: #fbfaf7; --surface: #ffffff; --text: #1f2328; --muted: #62686f;
+  --line: #e4e1d9; --accent: #5b3fd6; --code-bg: #0d1117; --code-text: #e6edf3;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #14161a; --surface: #1c1f25; --text: #e7e9ec; --muted: #9aa1a9;
+          --line: #2c3038; --accent: #a996ff; }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 18px/1.7 Georgia, "Iowan Old Style", "Times New Roman", serif; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+h1, h2, h3, h4, nav, time, .meta, .tags, .site-footer, .comment-meta, .note, .pager {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+h1, h2, h3, h4 { line-height: 1.25; text-wrap: balance; }
+
+.site-header { border-bottom: 1px solid var(--line); margin-bottom: 40px; }
+.site-header .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline;
+  justify-content: space-between; padding-top: 22px; padding-bottom: 18px; }
+.site-title { font: 700 1.35rem system-ui, sans-serif; color: var(--text); text-decoration: none; }
+.site-header nav { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .9rem; }
+.site-header nav a { color: var(--muted); text-decoration: none; }
+.site-header nav a:hover { color: var(--accent); }
+.intro { font-size: 1.25rem; color: var(--muted); margin: 0 0 32px; }
+
+.post-list { list-style: none; margin: 0; padding: 0; }
+.post-list li { padding: 0 0 36px; margin: 0 0 36px; border-bottom: 1px solid var(--line); }
+.post-list h2 { margin: 0 0 8px; font-size: 1.5rem; }
+.post-list h2 a { color: var(--text); text-decoration: none; }
+.post-list h2 a:hover { color: var(--accent); }
+.post-list p { margin: 0 0 8px; }
+.post-list time, .meta { color: var(--muted); font-size: .85rem; }
+.featured { display: block; width: 100%; max-height: 320px; object-fit: cover;
+  border-radius: 8px; margin-bottom: 16px; }
+.list-title { font-size: 1.8rem; margin: 0 0 28px; }
+
+.post header h1 { font-size: 2.1rem; margin: 0 0 8px; }
+.post .meta { margin: 0 0 28px; }
+.content img { max-width: 100%; height: auto; border-radius: 6px; }
+.content h2 { font-size: 1.5rem; margin: 2em 0 .6em; }
+.content h3 { font-size: 1.2rem; margin: 1.8em 0 .5em; }
+.content blockquote { margin: 1.5em 0; padding: 2px 20px; border-left: 3px solid var(--accent);
+  color: var(--muted); }
+.content table { border-collapse: collapse; display: block; overflow-x: auto; font-size: .9rem; }
+.content th, .content td { border: 1px solid var(--line); padding: 6px 12px; text-align: left; }
+.content :not(pre) > code { background: var(--line); padding: 2px 6px; border-radius: 4px;
+  font-size: .85em; overflow-wrap: anywhere; }
+.content pre, .highlight pre { background: var(--code-bg) !important; color: var(--code-text);
+  padding: 16px 18px; border-radius: 8px; overflow-x: auto; font-size: .82rem; line-height: 1.55; }
+.content pre code { font-family: ui-monospace, "Cascadia Code", Consolas, Menlo, monospace; }
+.embed { position: relative; padding-bottom: 56.25%; margin: 1.5em 0; }
+.embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.tags { font-size: .85rem; margin-top: 32px; }
+.tags a { margin-right: 10px; color: var(--muted); text-decoration: none; }
+.terms { columns: 2; padding-left: 20px; }
+
+.pager { display: flex; justify-content: space-between; gap: 24px; margin: 40px 0;
+  font-size: .9rem; }
+.pager a { text-decoration: none; max-width: 48%; }
+.comments { border-top: 1px solid var(--line); margin-top: 48px; padding-top: 12px; }
+.comments h2 { font-size: 1.2rem; }
+.note { color: var(--muted); font-size: .85rem; }
+.comment { background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+  padding: 4px 18px; margin: 14px 0; font-size: .95rem; overflow-wrap: anywhere; }
+.comment.reply { margin-left: 28px; }
+.comment-meta { color: var(--muted); font-size: .8rem; margin: 10px 0 0; }
+.site-footer { border-top: 1px solid var(--line); margin-top: 56px; color: var(--muted);
+  font-size: .85rem; }
+.site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between;
+  gap: 8px; padding-top: 20px; padding-bottom: 32px; }
+.site-footer a { color: var(--muted); }
+@media (max-width: 520px) { body { font-size: 17px; } .post header h1 { font-size: 1.7rem; } .terms { columns: 1; } }

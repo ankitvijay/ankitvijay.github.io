@@ -1,0 +1,9 @@
+{{ define "main" }}
+<p class="intro">{{ site.Params.description }}</p>
+{{ $pager := .Paginate (where site.RegularPages "Section" "posts") }}
+{{ partial "post-list.html" $pager.Pages }}
+<nav class="pager">
+  {{ if $pager.HasPrev }}<a href="{{ $pager.Prev.URL }}">&larr; Newer posts</a>{{ else }}<span></span>{{ end }}
+  {{ if $pager.HasNext }}<a href="{{ $pager.Next.URL }}">Older posts &rarr;</a>{{ end }}
+</nav>
+{{ end }}

@@ -1,0 +1,12 @@
+<ul class="post-list">
+  {{ range . }}{{ $p := . }}
+  <li>
+    <article>
+      {{ with .Params.featured_image }}<a href="{{ $p.RelPermalink }}"><img class="featured" src="{{ . | relURL }}" alt="" loading="lazy"></a>{{ end }}
+      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+    </article>
+  </li>
+  {{ end }}
+</ul>
