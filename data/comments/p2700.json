@@ -1,0 +1,18 @@
+[
+ {
+  "id": 184,
+  "author": "Rahul",
+  "author_url": "",
+  "date": "2017-09-21T08:20:15+10:00",
+  "parent": 0,
+  "content": "<p>Great tip. How do you feel windsor compares to autofac?</p>\n"
+ },
+ {
+  "id": 186,
+  "author": "Ankit Vijay",
+  "author_url": "https://ankitvijaydotin.wordpress.com",
+  "date": "2017-09-21T19:52:36+10:00",
+  "parent": 0,
+  "content": "<p>Hi Rahul. Glad that you like it. Well, autofac is definitely more popular these days. it is considered modern container as compared to Castle Windsor. If I start a new project today, I might consider using Autofac over Castle Windsor. Having said that, Castle Windsor is actively maintained and updated in GitHub as well. So, you are not making a wrong choice choosing Castle Windsor as your IoC container 🙂</p>\n"
+ }
+]

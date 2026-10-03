@@ -1,0 +1,10 @@
+[
+ {
+  "id": 307,
+  "author": "Anton",
+  "author_url": "",
+  "date": "2022-01-26T23:41:46+10:00",
+  "parent": 0,
+  "content": "<p>Unfortunately, pg_try_advisory_lock doesn&#8217;t work well when postgres stands behind connection pooler, such as pgbouncer. Which is usually the case on production environments.</p>\n<p><a href=\"https://habrastorage.org/r/w1560/webt/ec/l6/h0/ecl6h02_l0hbh4kspdrba2g0a5c.png\"><img src=\"https://habrastorage.org/r/w1560/webt/ec/l6/h0/ecl6h02_l0hbh4kspdrba2g0a5c.png\" style=\"max-width:100%;\" /></a></p>\n"
+ }
+]

@@ -1,0 +1,18 @@
+[
+ {
+  "id": 288,
+  "author": "Louis",
+  "author_url": "",
+  "date": "2021-09-16T21:30:08+10:00",
+  "parent": 0,
+  "content": "<p>I love the creativity. Is a cool solution but I&#8217;m almost certain you would end up with less and more simple code if you just created three tests.</p>\n"
+ },
+ {
+  "id": 289,
+  "author": "Marius Kuys",
+  "author_url": "",
+  "date": "2021-09-26T21:45:33+10:00",
+  "parent": 0,
+  "content": "<p>Hey Ankit, I&#8217;ve bumped up against this issue again. You might find this interesting. <a href=\"https://github.com/xunit/xunit/issues/1758\" rel=\"nofollow ugc\">https://github.com/xunit/xunit/issues/1758</a> and have a look here for the syntax <a href=\"https://github.com/xunit/xunit/blob/dfddbb9210082dc9b563ab3c7da3604faabb4f4a/src/xunit.v3.core.tests/Sdk/Frameworks/TheoryDiscovererTests.cs#L568-L613\" rel=\"nofollow ugc\">https://github.com/xunit/xunit/blob/dfddbb9210082dc9b563ab3c7da3604faabb4f4a/src/xunit.v3.core.tests/Sdk/Frameworks/TheoryDiscovererTests.cs#L568-L613</a></p>\n"
+ }
+]

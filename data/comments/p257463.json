@@ -1,0 +1,10 @@
+[
+ {
+  "id": 317,
+  "author": "Huibert-Jan",
+  "author_url": "",
+  "date": "2021-09-18T20:34:23+10:00",
+  "parent": 0,
+  "content": "<p>Any thoughts on returning default(Boolean?) over returning null?</p>\n"
+ }
+]

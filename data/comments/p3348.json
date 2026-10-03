@@ -1,0 +1,26 @@
+[
+ {
+  "id": 236,
+  "author": "Rahul",
+  "author_url": "https://rahulrai.in",
+  "date": "2017-12-10T13:33:33+10:00",
+  "parent": 0,
+  "content": "<p>There might be a a few use cases to use TFSVC instead of Git that I can think of. Git doesn’t provide granular control over source code. For example, you can restrict access to a folder or part of code from a user in TFSVC. Being a centraliazed VC, the chances of you modifying the same code as someone else reduces as you can see the changes being made at all times.</p>\n"
+ },
+ {
+  "id": 237,
+  "author": "Ankit Vijay",
+  "author_url": "https://ankitvijaydotin.wordpress.com",
+  "date": "2017-12-10T15:03:17+10:00",
+  "parent": 0,
+  "content": "<p>Rahul, you are right. There are always few scenarios where TFSVC would work better than Git. But, I would argue that you can have workarounds or alternatives in Git for those scenarios. For example: if you really need a restricted access, you can simply have a separate repository. On your second point, you can still view the changes made by someone else  in Git as it gets merged to the mainline build.</p>\n"
+ },
+ {
+  "id": 239,
+  "author": "Preeti Lolla",
+  "author_url": "http://theotherfacet.wordpress.com",
+  "date": "2017-12-13T03:29:05+10:00",
+  "parent": 0,
+  "content": "<p>Wonderful post.</p>\n<p>Thank you.</p>\n"
+ }
+]

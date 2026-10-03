@@ -1,0 +1,18 @@
+[
+ {
+  "id": 313,
+  "author": "Cory Seaman",
+  "author_url": "",
+  "date": "2021-10-29T08:48:06+10:00",
+  "parent": 0,
+  "content": "<p>This was really helpful, thank you!</p>\n"
+ },
+ {
+  "id": 373,
+  "author": "Ronnie Barker",
+  "author_url": "https://gravatar.com/ronniebarker",
+  "date": "2023-06-01T01:39:48+10:00",
+  "parent": 0,
+  "content": "<p>The trouble is, there is a bunch of calls to &#8220;new&#8221; for a &#8220;CosmosJsonDotNetSerializer&#8221; dotted all over the cosmos library so it basically doesn&#8217;t work &#8211; and it&#8217;s all sealed and not supplied through config or DI so &#8211; thanks Microsoft 😦</p>\n"
+ }
+]
