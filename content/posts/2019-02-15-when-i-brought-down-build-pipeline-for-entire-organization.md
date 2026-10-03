@@ -38,7 +38,7 @@ Fixing the NuGet plugin issue fixed the build pipeline for most of our projects.
 
 ## It was not over yet….
 
-Just when I thought that all the issues were resolved and I could go home peacefully, life came full circle and we started getting the original error on my build.  At this point in time, there was no way I could take the same risk to clear the Team City cache.
+Just when I thought that all the issues were resolved and I could go home peacefully, life came full circle and we started getting the original error on my build.  At this point in time, there was no way I could take the same risk to clear the Team City cache.
 
 So, I did some further digging and found out [this issue](https://github.com/GitTools/GitVersion/issues/912). Here is the summary of the issue:
 

@@ -16,7 +16,7 @@ summary: "Originally posted on Deepika Vijay Blog : “A woman is a soul who car
 "A woman is a soul who carries a soul within her"
 ```
 
-![Ayaansh](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2017/07/ayaansh.jpg)
+![Ayaansh](/wp-content/uploads/2017/07/ayaansh.jpg)
 
 Motherhood, a special feeling coupled with divine emotions, sharing the strongest bond with your child. But being a mother is not an easy job. It is probably one of the toughest jobs, which comes with new responsibility. Unlike any corporate job, the job of a mother is not limited to just weekdays. As a mother you need to be ready 24*7, no matter what condition you may be in.
 

@@ -22,164 +22,127 @@ One of our API endpoints, “streamed” using IEnumerable. We felt there was an
 
 ### Existing code
 
-This file contains hidden or bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters.
-[Learn more about bidirectional Unicode characters](https://github.co/hiddenchars)
+```csharp
+    // Using Dapper;
 
-[Show hidden characters]({{ revealButtonHref }})
+    public async Task<IEnumerable<Item>> GetItems(int id)
+    {
+        var reader = await _connection.QueryMultipleAsync(getItemsSql,
+           param: new
+           {
+               Id = id
+           });
 
-|  |  |
-| --- | --- |
-|  | // Using Dapper; |
-|  |  |
-|  | public async Task<IEnumerable<Item>> GetItems(int id) |
-|  | { |
-|  | var reader = await _connection.QueryMultipleAsync(getItemsSql, |
-|  | param: new |
-|  | { |
-|  | Id = id |
-|  | }); |
-|  |  |
-|  | var idFromDb = (await reader.ReadAsync<int?>().ConfigureAwait(false)).SingleOrDefault(); |
-|  | if (idFromDb == null) |
-|  | { |
-|  | return null; |
-|  | } |
-|  |  |
-|  | var items = await reader.ReadAsync<Item>(buffered: false).ConfigureAwait(false); |
-|  |  |
-|  | return Stream(reader, items); |
-|  | } |
-|  |  |
-|  | private IEnumerable<Item> Stream(SqlMapper.GridReader reader, IEnumerable<Item> items) |
-|  | { |
-|  | using (reader) |
-|  | { |
-|  | foreach (var item in items) |
-|  | { |
-|  | yield return item; |
-|  | } |
-|  | } |
-|  | } |
-|  |  |
+        var idFromDb = (await reader.ReadAsync<int?>().ConfigureAwait(false)).SingleOrDefault();
+        if (idFromDb == null)
+        {
+           return null;
+        }
 
-[view raw](https://gist.github.com/ankitvijay/2ed9bf03d503de5f787d2ad7a4ff529c/raw/a0c033d436a45828177af3f5812c49d1725d5d7c/1_DapperQuery)
-[1_DapperQuery](https://gist.github.com/ankitvijay/2ed9bf03d503de5f787d2ad7a4ff529c#file-1_dapperquery)
-hosted with ❤ by [GitHub](https://github.com)
+        var items = await reader.ReadAsync<Item>(buffered: false).ConfigureAwait(false);
 
-This file contains hidden or bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters.
-[Learn more about bidirectional Unicode characters](https://github.co/hiddenchars)
+        return Stream(reader, items);
+    }
 
-[Show hidden characters]({{ revealButtonHref }})
+    private IEnumerable<Item> Stream(SqlMapper.GridReader reader, IEnumerable<Item> items)
+    {
+        using (reader)
+        {
+            foreach (var item in items)
+            {
+                yield return item;
+            }
+        }
+    }
+```
 
-|  |  |
-| --- | --- |
-|  | public async Task<IActionResult> GetItems(int id) |
-|  | { |
-|  | var items = await _query.GetItems(id); |
-|  | return Ok(Stream(items); |
-|  | } |
-|  |  |
-|  | private IEnumerable<ItemDto> Stream(IEnumerable<Item> items) |
-|  | { |
-|  | foreach (var item in items) |
-|  | { |
-|  | yield return GetItemDto(item); |
-|  | } |
-|  | } |
-|  |  |
-|  | private static ItemDto GetItemDto(Item item) |
-|  | { |
-|  | return new ItemDto |
-|  | { |
-|  | // Convert Item to ItemDto |
-|  | }; |
-|  | } |
+```csharp
+  public async Task<IActionResult> GetItems(int id)
+  {
+      var items = await _query.GetItems(id);
+      return Ok(Stream(items);
+  }
 
-[view raw](https://gist.github.com/ankitvijay/2ed9bf03d503de5f787d2ad7a4ff529c/raw/a0c033d436a45828177af3f5812c49d1725d5d7c/2_GetItemsController)
-[2_GetItemsController](https://gist.github.com/ankitvijay/2ed9bf03d503de5f787d2ad7a4ff529c#file-2_getitemscontroller)
-hosted with ❤ by [GitHub](https://github.com)
+  private IEnumerable<ItemDto> Stream(IEnumerable<Item> items)
+  {
+      foreach (var item in items)
+      {
+          yield return GetItemDto(item);
+      }
+  }
 
-As you can see in the above code, we do not *buffer* the result set returned from Dapper query in-memory and we return **Task<IEnumerable<ItemDto>** from the API.
+  private static ItemDto GetItemDto(Item item)
+  {
+      return new ItemDto
+      {
+         //  Convert Item to ItemDto
+      };
+  }
+```
+
+As you can see in the above code, we do not *buffer* the result set returned from Dapper query in-memory and we return **Task&lt;IEnumerable&lt;ItemDto>** from the API.
 
 ### Updated Code
 
 In order to convert the above code to use async stream, we started with converting the **IEnumerable** return type to **IAsyncEnumerable.** The updated code looked similar to below.
 
-This file contains hidden or bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters.
-[Learn more about bidirectional Unicode characters](https://github.co/hiddenchars)
+```csharp
+    // Import Nuget package: System.Linq.Async
 
-[Show hidden characters]({{ revealButtonHref }})
+    public async Task<IAsyncEnumerable<Item>> GetItems(int id)
+    {
+        var reader = await _connection.QueryMultipleAsync(getItemsSql,
+           param: new
+           {
+               Id = id
+           });
 
-|  |  |
-| --- | --- |
-|  | // Import Nuget package: System.Linq.Async |
-|  |  |
-|  | public async Task<IAsyncEnumerable<Item>> GetItems(int id) |
-|  | { |
-|  | var reader = await _connection.QueryMultipleAsync(getItemsSql, |
-|  | param: new |
-|  | { |
-|  | Id = id |
-|  | }); |
-|  |  |
-|  | var idFromDb = (await reader.ReadAsync<int?>().ConfigureAwait(false)).SingleOrDefault(); |
-|  | if (idFromDb == null) |
-|  | { |
-|  | return null; |
-|  | } |
-|  |  |
-|  | var items = await reader.ReadAsync<Item>(buffered: false).ConfigureAwait(false); |
-|  |  |
-|  | return Stream(reader, items); |
-|  | } |
-|  |  |
-|  | private IAsyncEnumerable<Item> Stream(SqlMapper.GridReader reader, IEnumerable<Item> items) |
-|  | { |
-|  | using (reader) |
-|  | { |
-|  | await foreach (var item in items.ToAsyncEnumerable()) |
-|  | { |
-|  | yield return item; |
-|  | } |
-|  | } |
-|  | } |
+        var idFromDb = (await reader.ReadAsync<int?>().ConfigureAwait(false)).SingleOrDefault();
+        if (idFromDb == null)
+        {
+            return null;
+        }
 
-[view raw](https://gist.github.com/ankitvijay/56ec5c118f226371bac5501847f57cae/raw/a0d001ae2c2135fde08f52b590da485b5c44758a/1_DapperQuery)
-[1_DapperQuery](https://gist.github.com/ankitvijay/56ec5c118f226371bac5501847f57cae#file-1_dapperquery)
-hosted with ❤ by [GitHub](https://github.com)
+        var items = await reader.ReadAsync<Item>(buffered: false).ConfigureAwait(false);
 
-This file contains hidden or bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters.
-[Learn more about bidirectional Unicode characters](https://github.co/hiddenchars)
+        return Stream(reader, items);
+    }
 
-[Show hidden characters]({{ revealButtonHref }})
+    private IAsyncEnumerable<Item> Stream(SqlMapper.GridReader reader, IEnumerable<Item> items)
+    {
+        using (reader)
+        {
+           await foreach (var item in items.ToAsyncEnumerable())
+           {
+               yield return item;
+           }
+        }
+     }
+```
 
-|  |  |
-| --- | --- |
-|  | public async Task<IActionResult> GetItems(int id) |
-|  | { |
-|  | var items = await _query.GetItems(id); |
-|  | return Ok(Stream(items); |
-|  | } |
-|  |  |
-|  | private IAsyncEnumerable<ItemDto> Stream(IAsyncEnumerable<Item> items) |
-|  | { |
-|  | await foreach (var item in items) |
-|  | { |
-|  | yield return GetItemDto(item); |
-|  | } |
-|  | } |
-|  |  |
-|  | private static ItemDto GetItemDto(Item item) |
-|  | { |
-|  | return new ItemDto |
-|  | { |
-|  | // Convert Item to ItemDto |
-|  | }; |
-|  | } |
+```csharp
+  public async Task<IActionResult> GetItems(int id)
+  {
+      var items = await _query.GetItems(id);
+      return Ok(Stream(items);
+  }
 
-[view raw](https://gist.github.com/ankitvijay/56ec5c118f226371bac5501847f57cae/raw/a0d001ae2c2135fde08f52b590da485b5c44758a/2_GetItemsController)
-[2_GetItemsController](https://gist.github.com/ankitvijay/56ec5c118f226371bac5501847f57cae#file-2_getitemscontroller)
-hosted with ❤ by [GitHub](https://github.com)
+  private IAsyncEnumerable<ItemDto> Stream(IAsyncEnumerable<Item> items)
+  {
+      await foreach (var item in items)
+      {
+          yield return GetItemDto(item);
+      }
+  }
+
+  private static ItemDto GetItemDto(Item item)
+  {
+      return new ItemDto
+      {
+         //  Convert Item to ItemDto
+      };
+  }
+```
 
 ### The issues
 
@@ -195,12 +158,12 @@ Wrapping the query to returned IAsycEnumerable did nothing more than a fake asyn
 
 While the first issue was enough for us to ditch **IAsyncEnumerable** untilthe Dapper library supports it, we soon realized that it was not the only issue. When we tried to test the API with around 50,000 records we received the following error:
 
-‘AsyncEnumerableReader’ reached the configured maximum size of the buffer when enumerating a value of type ‘<type>’. This limit is in place to prevent infinite streams of ‘IAsyncEnumerable<>’ from continuing indefinitely. If this is not a programming mistake, consider ways to reduce the collection size, or consider manually converting ‘<type>’ into a list rather than increasing the limit.
+‘AsyncEnumerableReader’ reached the configured maximum size of the buffer when enumerating a value of type ‘&lt;type>’. This limit is in place to prevent infinite streams of ‘IAsyncEnumerable&lt;>’ from continuing indefinitely. If this is not a programming mistake, consider ways to reduce the collection size, or consider manually converting ‘&lt;type>’ into a list rather than increasing the limit.
 
 With 50,000 records, we had hit the buffer limit of number of records we can return with IAsyncEnumerable in ASP.NET Core. A property **[MvcOptions.MaxIAsyncEnumerableBufferLimit](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.mvcoptions.maxiasyncenumerablebufferlimit?view=aspnetcore-3.1)** determines the buffer limit. By default, the limit is 8192. Since we were trying to return more than 8192 records we got the above error. We can update the buffer limit to the higher value by overriding **MaxIAsyncEnumerableBufferLimit** . However, this raised another question, why there is a buffer limit in the first place? Is that not what we were trying to avoid with **yield return**? The answer to this perhaps lies in these issues:
 
-- [ASP.NET Core 3.0 doesn’t stream IAsyncEnumerable<T> as chunk of data](https://github.com/dotnet/runtime/issues/30981)
-- [Add support for asynchronously serializing IAsyncEnumerable<T>](https://github.com/dotnet/runtime/issues/1570)
+- [ASP.NET Core 3.0 doesn’t stream IAsyncEnumerable&lt;T> as chunk of data](https://github.com/dotnet/runtime/issues/30981)
+- [Add support for asynchronously serializing IAsyncEnumerable&lt;T>](https://github.com/dotnet/runtime/issues/1570)
 
 At the time of writing, there is no JSON serializer support for IAsyncEnumerable as yet. This results in buffering the response from the API instead of returning a response stream.
 
@@ -208,4 +171,4 @@ At the time of writing, there is no JSON serializer support for IAsyncEnumerable
 
 Due to the above issues, we ended up reverting our changes to the original code. **IAsyncEnumerable** is a great feature and could solve world hunger in the future. But it is not ready for prime time yet, at least for our use case. Nevertheless, this whole exercise turned out to be a great learning experience for us. I hope this post would also help you to be aware of the pitfalls of jumping into the “new shining” feature such as IAsyncEnumerable without understanding it fully.
 
-> Photo by [chuttersnap](https://unsplash.com/@chuttersnap?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/fail?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+> Photo by [chuttersnap](https://unsplash.com/@chuttersnap?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/fail?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)

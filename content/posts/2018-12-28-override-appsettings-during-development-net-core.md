@@ -10,7 +10,7 @@ tag: ["appsettings", "asp-net-core", "configuration", "net", "net-core", "source
 summary: "Sometime back, I had written about how to override appSettings during development in traditional ASP.NET application. Recently, we started development of a ASP.NET Core application and had a similar challenge. Our developers work on different operating systems (Windows and Mac). They have different local connection strings and application settings. We had a same problem as"
 ---
 
-Sometime back, I had written about [how to override appSettings](https://ankitvijaydotin.wordpress.com/2018/04/21/override-appsettings-during-development/) during development in traditional ASP.NET application.
+Sometime back, I had written about [how to override appSettings](/2018/04/21/override-appsettings-during-development/) during development in traditional ASP.NET application.
 
 Recently, we started development of a ASP.NET Core application and had a similar challenge. Our developers work on different operating systems (Windows and Mac). They have different local connection strings and application settings. We had a same problem as earlier: How do we ensure that we do not store developer specific app settings/ connection string in source control.
 

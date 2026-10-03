@@ -28,11 +28,11 @@ Here are few features of **BrowserStack**:
 - It enables you to test your local application behind the corporate firewall.
 - It integrates well with the build pipeline.
 
-![](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/d8fd3-browesstackbrowseroptions.png)
+![](/wp-content/uploads/2022/12/d8fd3-browesstackbrowseroptions.png)
 
 **Browser selection in Browserstack (Image source: BrowserStack)**
 
-![](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/8bb0c-android-browserstack-local.png)
+![](/wp-content/uploads/2022/12/8bb0c-android-browserstack-local.png)
 
 **Local testing on real devices on BrowserStack**
 

@@ -10,7 +10,7 @@ tag: ["bot", "bot-framework", "faq", "microsoft-bot-framework", "net", "qna-serv
 summary: "This is part 3 (and possibly the final) of Microsoft Bot Framework Series. If you have jumped right here, you may want to look into my part 1 and part 2 of my blog. In this post, I will explain how to add different channels to the Microsoft Bot Microsoft Bot Framework provides the option"
 ---
 
-This is part 3 (and possibly the final) of Microsoft Bot Framework Series. If you have jumped right here, you may want to look into my [part 1](https://ankitvijaydotin.wordpress.com/2017/09/08/microsoft-bot-framework-part-1-qna-service/) and [part 2](https://ankitvijaydotin.wordpress.com/2017/09/12/microsoft-bot-framework-part-2/) of my blog. In this post, I will explain how to add different channels to the Microsoft Bot
+This is part 3 (and possibly the final) of Microsoft Bot Framework Series. If you have jumped right here, you may want to look into my [part 1](/2017/09/08/microsoft-bot-framework-part-1-qna-service/) and [part 2](/2017/09/12/microsoft-bot-framework-part-2/) of my blog. In this post, I will explain how to add different channels to the Microsoft Bot
 
 Microsoft Bot Framework provides the option to add a variety of channels like Web, Bing, Team, Facebook Messenger, Slack, Telegram, Twilio etc. I will focus on the web, Skype and Facebook Messenger channels here.
 
@@ -19,7 +19,7 @@ You can add these channels directly from Azure Portal or through [Bot Framework 
 - Go to [Bot Framework Portal](https://dev.botframework.com/) -> My Bot and select the Bot you created in the last step
 - Under the “Channels” link you will find **Skype** and **Web Chat** channel are added to Bot by default.
 
-![DefaultChannels.PNG](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2017/09/defaultchannels.png)
+![DefaultChannels.PNG](/wp-content/uploads/2017/09/defaultchannels.png)
 
 Default Channels
 
@@ -27,7 +27,7 @@ Default Channels
 
 - To test the Skype Bot, select Skype link and you will be redirected to **Add Skype Bot to Contact** screen. Click on the button to add the Bot to your Skype Account.
 
-![AddSkypeBotToContacts.PNG](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2017/09/addskypebottocontacts.png)
+![AddSkypeBotToContacts.PNG](/wp-content/uploads/2017/09/addskypebottocontacts.png)
 
 Add to Contacts
 
@@ -36,7 +36,7 @@ Add to Contacts
 - Once, you have configured your Bot. You can go ahead and **publish the Skype Bot** to distribute it to an unlimited number of users. Your request will be first reviewed, and if you adhere to [review guidelines](https://docs.botframework.com/directory/review-guidelines/) your Bot will be published.
 - After your Bot has been published, any Skype User can add it to their contacts to connect with you or your organization.
 
-![AddSkypeBot](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2017/09/addskypebot.png)
+![AddSkypeBot](/wp-content/uploads/2017/09/addskypebot.png)
 
 Add Bot to Skype Contact
 
@@ -45,7 +45,7 @@ Add Bot to Skype Contact
 - Like Skype, Web Chat is another channel that is added by default when you create your Bot
 - Configuring Web Chat is very easy. Click on Edit button and you will be presented with the HTML code that needs to be embedded to your Website. Adding the web chat is as easy as adding `<iframe>` to your website.
 
-![AddingWebChat](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2017/09/addingwebchat.png)
+![AddingWebChat](/wp-content/uploads/2017/09/addingwebchat.png)
 
 Embed bot as webchat to your website
 
@@ -54,17 +54,17 @@ Embed bot as webchat to your website
 ## Connect to Facebook Messager
 
 - As a **pre-requisite** to Add Facebook Messenger channel to your Bot you would need a Facebook Page and Facebook App.
-- Select **Facebook Messenger** option to Facebook Messenger channel to your Bot.
+- Select **Facebook Messenger** option to Facebook Messenger channel to your Bot.
 
-![AddFMChannel](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2017/09/addfmchannel.png)
+![AddFMChannel](/wp-content/uploads/2017/09/addfmchannel.png)
 
-Add Facebook Messenger Channel
+Add Facebook Messenger Channel
 
 - Next, you will need to provide Facebook Page Id, Facebook App Id, Facebook App Secret and Page Access Token. Please follow [this link](https://docs.microsoft.com/en-gb/bot-framework/channel-connect-facebook) to understand how to do so in depth.
 
-![FMCred](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2017/09/fmcred.png)
+![FMCred](/wp-content/uploads/2017/09/fmcred.png)
 
-Your Facebook Messenger Credentials
+Your Facebook Messenger Credentials
 
 - You would now, need to provide the Callback URL and Verify Token to Facebook. The above link also explains it in details. Hence, I will skip this step.
 - Once, you have filled in all the required information you would need to Publish your app for review. Please go through the [submission guidelines](https://developers.facebook.com/docs/apps/review/) and submit your app for review.

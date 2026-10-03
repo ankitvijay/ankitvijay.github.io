@@ -10,7 +10,7 @@ tag: ["devops", "integration-testing", "net", "net-core", "source-control", "tea
 summary: "Recently, I had written a post on how I managed bring down build pipeline for entire organization. While I was at fault during that time, Team City should take the blame for this one. Background I had recently created a CI/CD pipeline for our new .NET Core project. As part of the build pipeline, I"
 ---
 
-Recently, I had written a post on how I managed bring down [build pipeline for entire organization.](https://ankitvijaydotin.wordpress.com/2019/02/15/when-i-brought-down-build-pipeline-for-entire-organization/) While I was at fault during that time, Team City should take the blame for this one.
+Recently, I had written a post on how I managed bring down [build pipeline for entire organization.](/2019/02/15/when-i-brought-down-build-pipeline-for-entire-organization/) While I was at fault during that time, Team City should take the blame for this one.
 
 ### Background
 
@@ -50,4 +50,4 @@ This failure condition worked as build log messages contain text “Tests Failed
 
 Hope this tip helps you avoid making the same mistake and save few hours 🙂
 
-Photo by [Harshal Desai](https://unsplash.com/@harshaldesai?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/red-signal?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+Photo by [Harshal Desai](https://unsplash.com/@harshaldesai?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/red-signal?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)

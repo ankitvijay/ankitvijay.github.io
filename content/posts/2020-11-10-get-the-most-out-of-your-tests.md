@@ -22,9 +22,9 @@ The list below describes some of the practices we used to follow in my last team
 
 While there a few ways we can arrange our tests to describe GWT. Here is one example of how we can achieve this:
 
-- The name of the test class can denote “Given”. For example, **CreateCustomerCommandHandlerTests**name describes the tests in the class are for CreateCustomerCommandHandler
-- The name of the test can provide **When**and **Then**of the information. For example, **WhenEmailIdIsInvalid_CustomerShouldNotBeCreate**
-- If **When**is obvious, we may choose to ignore it. For example, **FirstNameShouldNotBeEmpty**
+- The name of the test class can denote “Given”. For example, **CreateCustomerCommandHandlerTests**name describes the tests in the class are for CreateCustomerCommandHandler
+- The name of the test can provide **When**and **Then**of the information. For example, **WhenEmailIdIsInvalid_CustomerShouldNotBeCreate**
+- If **When**is obvious, we may choose to ignore it. For example, **FirstNameShouldNotBeEmpty**
 
 The end goal is that just by looking at the name of the test, a developer should be able to understand the purpose of the test.
 
@@ -34,15 +34,15 @@ It is common to have build checks to fail the build if we do not meet a certain 
 
 ### Tests are not step-child. Given tests the first-class treatment
 
-Do not treat your tests differently from your code. Give them the same love. A code path is usually validated by running against multiple tests. We generally end-up having more “test” code than “real” code in our solution. Hence, it is essential to maintain the same quality standard for tests if not more. **An average code with a great test suite is better than a great code with an average test suite.** That is because we can always refactor our code. And when we refactor tests validates that we have not broken anything.
+Do not treat your tests differently from your code. Give them the same love. A code path is usually validated by running against multiple tests. We generally end-up having more “test” code than “real” code in our solution. Hence, it is essential to maintain the same quality standard for tests if not more. **An average code with a great test suite is better than a great code with an average test suite.** That is because we can always refactor our code. And when we refactor tests validates that we have not broken anything.
 
 ### Keep unit tests clear and concise. Do not combine multiple tests into one.
 
-Ideally, a unit test only a assert a “unit” or a single path. Combining multiple tests makes it less meaningful. For example, let us say we need to write tests for class **CreateCustomerValidator.**It is better to have multiple tests with clearly defined Assert like **FirstNameLengthShouldBeLessThanOrEqualTo50**rather than one single test **WhenCustomerDataIsInvalid_ShouldThrowValidationError**. The issue with the latter is that it does not give any information about how the data is invalid.
+Ideally, a unit test only a assert a “unit” or a single path. Combining multiple tests makes it less meaningful. For example, let us say we need to write tests for class **CreateCustomerValidator.**It is better to have multiple tests with clearly defined Assert like **FirstNameLengthShouldBeLessThanOrEqualTo50**rather than one single test **WhenCustomerDataIsInvalid_ShouldThrowValidationError**. The issue with the latter is that it does not give any information about how the data is invalid.
 
 ### Tests are documentation
 
-A good code is self-explanatory, and great tests are the documentation for our code. Taking the above example, **FirstNameLengthShouldBeLessThanOrEqualTo50**tells us that we have a business rule to restrict the first name to less than or equal to 50. If in future, the business rule changes we know precisely which test should break and what we need to fix.
+A good code is self-explanatory, and great tests are the documentation for our code. Taking the above example, **FirstNameLengthShouldBeLessThanOrEqualTo50**tells us that we have a business rule to restrict the first name to less than or equal to 50. If in future, the business rule changes we know precisely which test should break and what we need to fix.
 
 ### If we change code logic and a test does not fail, we are not testing right
 
@@ -54,15 +54,15 @@ If we find a bug in production or during the manual test, start with a test to r
 
 ### Use builder pattern to setup “Arrange” of tests
 
-Builder patterns is a great way to set up “Arrange” of our tests. Steve Smith has written an [excellent post](https://zipmoney.atlassian.net/wiki/spaces/PLAT/pages/1138327802/Account+Cache+Builder+Debezium+-+Load+Tests) on how builder pattern can help keep our tests neat.
+Builder patterns is a great way to set up “Arrange” of our tests. Steve Smith has written an [excellent post](https://zipmoney.atlassian.net/wiki/spaces/PLAT/pages/1138327802/Account+Cache+Builder+Debezium+-+Load+Tests) on how builder pattern can help keep our tests neat.
 
 ### Try to use rich libraries such as Shouldly or Fluent Assertion
 
-[Shouldly](https://github.com/shouldly/shouldly) and [Fluence Assertion](https://fluentassertions.com/) are assertion frameworks which focus on giving great error messages when the assertion fails while being simple to use. They provide an extensive set of extension methods that allow us to specify the expected outcome of the tests in TDD and BDD-style. These libraries are not also not specific to a test engine such as XUnit or NUnit, so if different projects use different test engines, we still have one consistent way of Assert.
+[Shouldly](https://github.com/shouldly/shouldly) and [Fluence Assertion](https://fluentassertions.com/) are assertion frameworks which focus on giving great error messages when the assertion fails while being simple to use. They provide an extensive set of extension methods that allow us to specify the expected outcome of the tests in TDD and BDD-style. These libraries are not also not specific to a test engine such as XUnit or NUnit, so if different projects use different test engines, we still have one consistent way of Assert.
 
 ### Try to use Libraries such as Autofixture, Bogus to generate test/ fake data
 
-The libraries such as [Autofixture](https://github.com/AutoFixture/AutoFixture)and [Bogus](https://github.com/bchavez/Bogus) make it easier for developers to do Test-Driven Development by automating non-relevant Test Fixture Setup, allowing developers to focus on the essentials of each test case. The idea is also not to reinvent the wheel by creating our own “Random-Fixture” library.
+The libraries such as [Autofixture](https://github.com/AutoFixture/AutoFixture)and [Bogus](https://github.com/bchavez/Bogus) make it easier for developers to do Test-Driven Development by automating non-relevant Test Fixture Setup, allowing developers to focus on the essentials of each test case. The idea is also not to reinvent the wheel by creating our own “Random-Fixture” library.
 
 ### Assert Mocks
 

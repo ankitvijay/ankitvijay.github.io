@@ -14,7 +14,7 @@ summary: "Disclaimer: This post is not an endorsement or opposition of any produ
 
 This is Part-2 of my blog series on Static Analysis Software Testing (SAST) tooling.
 
-In the [Part 1](https://ankitvijaydotin.wordpress.com/2019/06/22/security-tooling-part-1/), I described our pain-points using Veracode and what motivated us to look elsewhere. In this part , I will describe how we went about looking for a tool better suited for our needs.
+In the [Part 1](/2019/06/22/security-tooling-part-1/), I described our pain-points using Veracode and what motivated us to look elsewhere. In this part , I will describe how we went about looking for a tool better suited for our needs.
 
 #### A “**perfect” SAST tool**
 
@@ -62,4 +62,4 @@ The above criteria helped us narrow down our search to following products:
 
 In the next and final post, I will talk about the tool how we further reduce our long list of SAST tools and what we ended up procuring.
 
-> Photo by [Vladislav Babienko](https://unsplash.com/@garri?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/search/photos/selection-criteria?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+> Photo by [Vladislav Babienko](https://unsplash.com/@garri?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/search/photos/selection-criteria?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)

@@ -24,42 +24,33 @@ This is where we looked into the third option: Host the Background Worker on IIS
 
 To run the background worker on the IIS, we had to tweak IIS settings to keep it always up and running. Here is the PowerShell script which we run on Octopus to update the IIS settings.
 
-This file contains hidden or bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters.
-[Learn more about bidirectional Unicode characters](https://github.co/hiddenchars)
+```powershell
+    ## IIS WebAdmin Module
+    Import-Module WebAdministration
 
-[Show hidden characters]({{ revealButtonHref }})
+    $AppPoolInstance = Get-Item IIS:\AppPools\$AppPool
 
-|  |  |
-| --- | --- |
-|  | ## IIS WebAdmin Module |
-|  | Import-Module WebAdministration |
-|  |  |
-|  | $AppPoolInstance = Get-Item IIS:\AppPools\$AppPool |
-|  |  |
-|  | Write-Output "Set Site PreLoadEnabled to true" |
-|  | Set-ItemProperty IIS:\Sites\$Site -name applicationDefaults.preloadEnabled -value True |
-|  |  |
-|  | Write-Output "Set Recycling.periodicRestart.time = 0" |
-|  | $AppPoolInstance.Recycling.periodicRestart.time = [TimeSpan]::Parse("0"); |
-|  | $AppPoolInstance | Set-Item |
-|  |  |
-|  | Write-Output "Set App Pool start up mode to AlwaysRunning" |
-|  | $AppPoolInstance.startMode = "alwaysrunning" |
-|  |  |
-|  | Write-Output "Disable App Pool Idle Timeout" |
-|  | $AppPoolInstance.processModel.idleTimeout = [TimeSpan]::FromMinutes(0) |
-|  | $AppPoolInstance | Set-Item |
-|  |  |
-|  | if ($appPoolStatus -ne "Started") { |
-|  | Write-Output "Starting App Pool" |
-|  | Start-WebAppPool $AppPool |
-|  | } else { |
-|  | Write-Output "Restarting App Pool" |
-|  | Restart-WebAppPool $AppPool |
-|  | } |
+    Write-Output "Set Site PreLoadEnabled to true"
+    Set-ItemProperty IIS:\Sites\$Site -name applicationDefaults.preloadEnabled -value True
 
-[view raw](https://gist.github.com/ankitvijay/9dd0aef6450a30d34516e0642d5e30b5/raw/4e04d6127251b9fef763d9c6fed62ac1835739f7/AlwaysOn.ps)
-[AlwaysOn.ps](https://gist.github.com/ankitvijay/9dd0aef6450a30d34516e0642d5e30b5#file-alwayson-ps)
-hosted with ❤ by [GitHub](https://github.com)
+    Write-Output "Set Recycling.periodicRestart.time  = 0"
+    $AppPoolInstance.Recycling.periodicRestart.time = [TimeSpan]::Parse("0");
+    $AppPoolInstance | Set-Item
+
+    Write-Output "Set App Pool start up mode to AlwaysRunning"
+    $AppPoolInstance.startMode = "alwaysrunning"
+
+    Write-Output "Disable App Pool Idle Timeout"
+    $AppPoolInstance.processModel.idleTimeout = [TimeSpan]::FromMinutes(0)
+    $AppPoolInstance | Set-Item
+
+    if ($appPoolStatus -ne "Started") {
+        Write-Output "Starting App Pool"
+        Start-WebAppPool $AppPool
+    } else {
+        Write-Output "Restarting App Pool"
+        Restart-WebAppPool $AppPool
+    }
+```
 
 Hope you find this useful. 🙂

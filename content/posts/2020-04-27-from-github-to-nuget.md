@@ -10,7 +10,7 @@ tag: ["asp-net-core", "branching-model", "github", "github-actions", "github-flo
 summary: "This post talks about my journey to publish ASP.NET Core Middleware as a Nuget Package from GitHub repository through GitHub Actions."
 ---
 
-I have been [contributing to open source](https://ankitvijaydotin.wordpress.com/2019/10/21/migrating-dotnet-foundation-website-to-asp-net-core-3-0/) for quite some time. However, with some exceptions, most of these contributions had been small, intending to solve a particular problem at my workplace. In addition to this, none of my previous contributions went beyond a public repository on my GitHub account. But I was keen to change that and a small vacation during Covid-19 turned out to be perfect timing.
+I have been [contributing to open source](/2019/10/21/migrating-dotnet-foundation-website-to-asp-net-core-3-0/) for quite some time. However, with some exceptions, most of these contributions had been small, intending to solve a particular problem at my workplace. In addition to this, none of my previous contributions went beyond a public repository on my GitHub account. But I was keen to change that and a small vacation during Covid-19 turned out to be perfect timing.
 
 ## My first package on nuget.org
 
@@ -34,11 +34,11 @@ With the above points in mind, I decided to create a middleware that returns an 
 
 ### GitHub Repository
 
-As a first step, I created an empty repository. After several attempts, I settled for the name [**DeveloperExceptionJsonResponse**](https://github.com/ankitvijay/DeveloperExceptionJsonResponse)for my GitHub repo and eventually the NuGet package (Naming is [hard](https://martinfowler.com/bliki/TwoHardThings.html)).
+As a first step, I created an empty repository. After several attempts, I settled for the name [**DeveloperExceptionJsonResponse**](https://github.com/ankitvijay/DeveloperExceptionJsonResponse)for my GitHub repo and eventually the NuGet package (Naming is [hard](https://martinfowler.com/bliki/TwoHardThings.html)).
 
-Next, I used [gitignore.io](https://www.gitignore.io/) to create a .gitignore file for my repository. If you have not heard of this gitignore.io, it is a great tool to auto-generate the gitignore files for your projects.
+Next, I used [gitignore.io](https://www.gitignore.io/) to create a .gitignore file for my repository. If you have not heard of this gitignore.io, it is a great tool to auto-generate the gitignore files for your projects.
 
-To start with, I decided to go with [GitHub Flow](http://scottchacon.com/2011/08/31/github-flow.html) as my branching strategy with a master branch “always deployable”. I did, however, soon realize that this may not work very well for my scenario. I will talk more about this in the coming sections.
+To start with, I decided to go with [GitHub Flow](http://scottchacon.com/2011/08/31/github-flow.html) as my branching strategy with a master branch “always deployable”. I did, however, soon realize that this may not work very well for my scenario. I will talk more about this in the coming sections.
 
 ### Branch Protection
 
@@ -68,7 +68,7 @@ My GitHub Action workflow executes the following steps:
 
 - **Versioning**: Needless to say but a Nuget package requires versioning. I chose [GitVersion](https://gitversion.net/docs) to achieve [Semantic Versioning](https://semver.org/) on the project primarily because of the familiarity and experience of using it in my organization. The GitHub Action to use GitVersion can be found [here](https://github.com/GitTools/actions).
 
-**Tip**: When using GitVersion Action ensure that you have **Gitversion.yml**file in your source code to avoid unexpected issues. The documentation does not do a great job of explaining that. To configure additional options, refer to the [source code](https://github.com/GitTools/actions/blob/master/gitversion/execute/action.yml).
+**Tip**: When using GitVersion Action ensure that you have **Gitversion.yml**file in your source code to avoid unexpected issues. The documentation does not do a great job of explaining that. To configure additional options, refer to the [source code](https://github.com/GitTools/actions/blob/master/gitversion/execute/action.yml).
 
 - **Set up .NET Core**: I used the official GitHub [setup-dotnet Action](https://github.com/actions/setup-dotnet) to set up the [dotnet cli](https://github.com/dotnet/cli) environment. This action allowed me to use **dotnet** commands such as restore, build, test, pack, and nuget push.
 

@@ -16,11 +16,11 @@ I took that opportunity to learn more about **Microsoft Bot Framework**and demon
 
 The capability of Microsoft Bot Framework really amazed me and I was inspired to create a bot called **AskAnkit** which would answer some basic question on my behalf to my audience.
 
-In a series of blog posts,  I will illustrate step by step process you can follow to create similar service for your organization or own personal blog. In its first part, I will explain how to create a FAQ knowledge base using Microsft QnA Maker.
+In a series of blog posts,  I will illustrate step by step process you can follow to create similar service for your organization or own personal blog. In its first part, I will explain how to create a FAQ knowledge base using Microsft QnA Maker.
 
-# Create service using Microsoft QnA Maker
+## Create service using Microsoft QnA Maker
 
-As a first step, go to [Microsoft QnA Maker](https://qnamaker.ai/) and log in with your **Office 365** or **Microsoft id**. The QnA Maker helps you create a bot from FAQ in within minutes. At the time of writing the QnA Maker is still in preview.
+As a first step, go to [Microsoft QnA Maker](https://qnamaker.ai/) and log in with your **Office 365** or **Microsoft id**. The QnA Maker helps you create a bot from FAQ in within minutes. At the time of writing the QnA Maker is still in preview.
 
 - Once you successfully log in to QnA maker, **Create new Service**
 - In the next page, provide the name of your service.
@@ -30,7 +30,7 @@ As a first step, go to [Microsoft QnA Maker](https://qnamaker.ai/) and log in w
   - **Manually add questions and answers:**You can add the questions once the service is created
 - Next, just click create and you will have a QnA service up and running within seconds.
 
-![QnA](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2017/09/qna.png)
+![QnA](/wp-content/uploads/2017/09/qna.png)
 
 QnA Service Knowledge Base
 
@@ -38,7 +38,7 @@ QnA Service Knowledge Base
 - Once, you publish the service, you can call this service as an API endpoint from anywhere. The settings tab has a Sample HTTP request.
 - You can use [POSTMAN](https://www.getpostman.com/), [Fiddler](http://www.telerik.com/fiddler) or any other similar tool to test your service.
 
-![TestingQnAService](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2017/09/testingqnaservice.png)
+![TestingQnAService](/wp-content/uploads/2017/09/testingqnaservice.png)
 
 Testing QnA Service on Postman
 

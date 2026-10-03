@@ -16,10 +16,10 @@ In this series, I have described how you can use an Enumeration Class beyond DDD
 
 Here are the posts in this series.
 
-- Part 1: [Introduction to Enumeration Classes](https://ankitvijaydotin.wordpress.com/2020/05/21/introduction-enumeration-class/)
-- Part 2: [Enumeration class and JSON Serialization](https://ankitvijaydotin.wordpress.com/2020/06/01/enumeration-class-serialization/)
-- Part 3: [Enumeration class as query string parameter](https://ankitvijaydotin.wordpress.com/2020/06/14/enumeration-class-query-string/)
-- Part 4: [Generating client code with NSwag for Enumeration class](https://ankitvijaydotin.wordpress.com/2020/07/12/enumeration-class-nswag/)
-- Part 5: [Implementing Inheritance with Enumeration class](https://ankitvijaydotin.wordpress.com/2020/08/08/inheritance-enumeration-class/)
+- Part 1: [Introduction to Enumeration Classes](/2020/05/21/introduction-enumeration-class/)
+- Part 2: [Enumeration class and JSON Serialization](/2020/06/01/enumeration-class-serialization/)
+- Part 3: [Enumeration class as query string parameter](/2020/06/14/enumeration-class-query-string/)
+- Part 4: [Generating client code with NSwag for Enumeration class](/2020/07/12/enumeration-class-nswag/)
+- Part 5: [Implementing Inheritance with Enumeration class](/2020/08/08/inheritance-enumeration-class/)
 
-The Enumeration class and other dependent classes are available as the [Nuget packages](https://www.nuget.org/packages?q=ankitvijay). You can find the source code for the series at [this GitHub link](https://github.com/ankitvijay/Enumeration).
+The Enumeration class and other dependent classes are available as the [Nuget packages](https://www.nuget.org/packages?q=ankitvijay). You can find the source code for the series at [this GitHub link](https://github.com/ankitvijay/Enumeration).

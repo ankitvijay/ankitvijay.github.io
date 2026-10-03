@@ -34,25 +34,25 @@ One of the tips from my colleague, ***@Marius*** that really helped me improve p
 
 - Go to “Performance Options” on your Windows machine. You can open this option by searching “Adjust the appearance and performance of Windows”
 
-![](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/af904-image.png)
+![](/wp-content/uploads/2022/12/af904-image.png)
 
 *Search: Adjust the appearance and performance of Windows*
 
 - Next, select the option “Adjust for best performance”. This will unselect all the Visual Effects options as shown in the screenshot below.
 
-![](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/2e875-image-2.png)
+![](/wp-content/uploads/2022/12/2e875-image-2.png)
 
 *Performance Options – Adjust for best performance*
 
 - Unfortunately, this may result in a side effect where fonts on your machine could go haywire and they may appear like this:
 
-![](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/3ff5d-image-3.png)
+![](/wp-content/uploads/2022/12/3ff5d-image-3.png)
 
 *Fonts go haywire*
 
 - To fix this, go to “Custom” option and select “Smooth edges of screen fonts”
 
-![](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/f8474-image-4.png)
+![](/wp-content/uploads/2022/12/f8474-image-4.png)
 
 *Smooth edges of screen fonts*
 
@@ -62,4 +62,4 @@ One of the tips from my colleague, ***@Marius*** that really helped me improve p
 
 After trying different options, the above tip from my colleague helped me with the improved Visual Studio and ReSharper considerably. If you face similar performance issues with Visual Studio and ReSharper, please give this a try and see if it helps.
 
-Photo by [Barn Images](https://unsplash.com/@barnimages?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/search/photos/tool?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+Photo by [Barn Images](https://unsplash.com/@barnimages?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/search/photos/tool?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)

@@ -24,44 +24,25 @@ Of course, the easiest solution was to use separate code to register the contain
 
 Here is the usage:
 
-This file contains hidden or bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters.
-[Learn more about bidirectional Unicode characters](https://github.co/hiddenchars)
-
-[Show hidden characters]({{ revealButtonHref }})
-
-|  |  |
-| --- | --- |
-|  | public class PerWebRequestLifestyleOverrider : IContributeComponentModelConstruction |
-|  | { |
-|  | public void ProcessModel(IKernel kernel, ComponentModel model) |
-|  | { |
-|  | if (model.LifestyleType == LifestyleType.PerWebRequest) |
-|  | { |
-|  | model.LifestyleType = LifestyleType.Singleton; |
-|  | } |
-|  | } |
-|  | } |
-|  |  |
-
-[view raw](https://gist.github.com/ankitvijay/3235edbd3991f19dbf735914185b5b9c/raw/478cbf5200cc247b0f87fb879b0ff301512c63f5/PerWebRequestLifestyleOverrider.cs)
-[PerWebRequestLifestyleOverrider.cs](https://gist.github.com/ankitvijay/3235edbd3991f19dbf735914185b5b9c#file-perwebrequestlifestyleoverrider-cs)
-hosted with ❤ by [GitHub](https://github.com)
+```csharp
+public class PerWebRequestLifestyleOverrider : IContributeComponentModelConstruction
+{
+	public void ProcessModel(IKernel kernel, ComponentModel model)
+	{
+		if (model.LifestyleType == LifestyleType.PerWebRequest)
+		{
+			model.LifestyleType = LifestyleType.Singleton;
+		}
+	}
+}
+```
 
 Now, you can plug the above code to your container by simply adding to below line of code while registering your Windsor Container:
 
-This file contains hidden or bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters.
-[Learn more about bidirectional Unicode characters](https://github.co/hiddenchars)
-
-[Show hidden characters]({{ revealButtonHref }})
-
-|  |  |
-| --- | --- |
-|  | var conatiner = new WindsorContainer(); |
-|  | container.Kernel.ComponentModelBuilder.AddContributor(new PerWebRequestLifestyleOverrider()); |
-|  | // Rest of your code |
-
-[view raw](https://gist.github.com/ankitvijay/5bab96c40a2a2f33c34d2ac97cb3254f/raw/026d116d7cbe6c578f79777f262aeee0b1975dac/WindsorContainerRegistration.cs)
-[WindsorContainerRegistration.cs](https://gist.github.com/ankitvijay/5bab96c40a2a2f33c34d2ac97cb3254f#file-windsorcontainerregistration-cs)
-hosted with ❤ by [GitHub](https://github.com)
+```csharp
+var conatiner = new WindsorContainer();
+container.Kernel.ComponentModelBuilder.AddContributor(new PerWebRequestLifestyleOverrider());
+// Rest of your code
+```
 
 Hope this helps you to save some debugging effort 🙂

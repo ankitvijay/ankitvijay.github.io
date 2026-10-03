@@ -8,20 +8,20 @@ wp_id: 257463
 category: ["net"]
 tag: ["c", "net", "rosyln", "switch-case", "switch-expression", "tips-tricks", "visual-studio"]
 summary: "This post talks about a bug in Rider and Roslyn analyzers when we refactor the switch-case to switch expression with Nullable default type."
-featured_image: "https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/51f6d-csharp.png"
+featured_image: "/wp-content/uploads/2022/12/51f6d-csharp.png"
 ---
 
 ## Introduction
 
 I use JetBrains Rider for my development and usually refactor my code as per the tips from Rider (or ReSharper if you are using Visual Studio). One of the tips that Rider suggests is to replace the traditional switch-case statements with a relatively new [C# feature](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/switch-expression), switch expression. Here is the screenshot of the suggestion:
 
-![](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/96cf8-image.png?w=1024&h=476)
+![](/wp-content/uploads/2022/12/96cf8-image.png)
 
 *Rider suggestion to convert switch-case to switch expression*
 
 If you are a Visual Studio user, then Roslyn analyzer gives the same refactoring suggestion.
 
-![Roslyn Analyzer screenshot for switch expression](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/d7f2d-roslyn.jpg)
+![Roslyn Analyzer screenshot for switch expression](/wp-content/uploads/2022/12/d7f2d-roslyn.jpg)
 
 *Roslyn Analyzer refactoring suggestion*
 
@@ -31,7 +31,7 @@ Most of the time, the refracting suggestion does not have any side-effect, and t
 
 Consider the below simple code:
 
-```
+```csharp
 Console.WriteLine("Is Null? " + (GetBoolean("Nah") == null));
 enum Boolean
 {
@@ -56,7 +56,7 @@ The method **`GetBoolean`** takes a string and returns a nullable enum. When the
 
 If we refactor the above code as per Rider or Visual Studio suggestion, the code would look as below:
 
-```
+```csharp
 static Boolean? GetBoolean(string boolString)
 {
     return boolString switch
@@ -94,7 +94,7 @@ Matt Ellis (from JetBrains) and David Kean (from Visual Studio) were kind enough
 
 To fix this issue, we can typecast the first case of switch expression as `Boolean?`.
 
-```
+```csharp
 static Boolean? GetBoolean(string boolString)
 {
     return boolString switch
@@ -108,7 +108,7 @@ static Boolean? GetBoolean(string boolString)
 
 Alternatively, we can return the default as `null` instead.
 
-```
+```csharp
 static Boolean? GetBoolean(string boolString)
 {
     return boolString switch

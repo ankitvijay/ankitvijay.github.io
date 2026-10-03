@@ -16,7 +16,7 @@ Let me start by saying that I love Visual Studio. It is one of the best IDE out 
 
 In the same breath, I love ReSharper. ReSharper again has been an essential tool which has made my development life easy over the years.
 
-Unfortunately, it is the combination of ReSharper and Visual Studio that has not worked very well. The performance issues of Visual Studio and ReSharper are well known for years. But there has not been much improvement. [The post from JetBrains](https://blog.jetbrains.com/dotnet/2019/07/11/where-we-are-with-out-of-process-resharper/) gives some background of the issues with ReSharper on Visual Studio.
+Unfortunately, it is the combination of ReSharper and Visual Studio that has not worked very well. The performance issues of Visual Studio and ReSharper are well known for years. But there has not been much improvement. [The post from JetBrains](https://blog.jetbrains.com/dotnet/2019/07/11/where-we-are-with-out-of-process-resharper/) gives some background of the issues with ReSharper on Visual Studio.
 
 <blockquote class="twitter-tweet" data-dnt="true" data-width="500"><p dir="ltr" lang="en">I love <a href="https://twitter.com/VisualStudio?ref_src=twsrc%5Etfw">@VisualStudio</a>, I love <a href="https://twitter.com/resharper?ref_src=twsrc%5Etfw">@resharper</a>. Just don't together… Visual Studio 2019 with ReSharper has become unusable…  Can you guys please fix this?<br/><br/>– A frustrated dev</p>— Ankit Vijay (@vijayankit) <a href="https://twitter.com/vijayankit/status/1159591167769530370?ref_src=twsrc%5Etfw">August 8, 2019</a></blockquote>
 
@@ -24,9 +24,9 @@ Unfortunately, it is the combination of ReSharper and Visual Studio that has not
 
 For the last year, I have been working with Visual Studio 2019 and ReSharper on a large solution where project count has gone over 130 projects over the previous few months. For those, you might be wondering why 130 odd-projects in a single solution? Well! It has its reasons, but, I will spare those details for some other time.
 
-The performance of Visual Studio with ReSharper for the large solution was horrible. The Visual Studio UI hanged for mins before I could start coding. The build took very long to complete, and the tests took forever to run. From time to time, I ended up disabling the ReSharper only to enable it again. In addition to this, Git integration on Visual Studio left a lot to be desire. While the new Git tool filled some of the gaps, it was still very much work in progress. I raised [several issues](https://developercommunity.visualstudio.com/content/problem/1067609/visual-studio-sluggish-performace-and-freeze-issue.html) with the Visual Studio team, but unfortunately, none of it helped.
+The performance of Visual Studio with ReSharper for the large solution was horrible. The Visual Studio UI hanged for mins before I could start coding. The build took very long to complete, and the tests took forever to run. From time to time, I ended up disabling the ReSharper only to enable it again. In addition to this, Git integration on Visual Studio left a lot to be desire. While the new Git tool filled some of the gaps, it was still very much work in progress. I raised [several issues](https://developercommunity.visualstudio.com/content/problem/1067609/visual-studio-sluggish-performace-and-freeze-issue.html) with the Visual Studio team, but unfortunately, none of it helped.
 
-![](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/9b0b6-visual-studio-performance-issue.png)
+![](/wp-content/uploads/2022/12/9b0b6-visual-studio-performance-issue.png)
 
 *100% CPU with Visual Studio was quite common*
 
@@ -40,7 +40,7 @@ Now, my expectations with Rider were pretty low. Visual Studio has been around f
 
 I was wrong about my assumptions. Rider turned-out to be much better than I imagine. I started Rider with a Visual Studio theme and key-mappings. It took a lot of friction out of using the new IDE. My editor screen and keyboard shortcuts worked the same as they were with Visual Studio.
 
-![](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/81201-visualstudiodarktheme.jpg)
+![](/wp-content/uploads/2022/12/81201-visualstudiodarktheme.jpg)
 
 *Visual Studio Dark Theme in Rider*
 
@@ -50,19 +50,19 @@ Initially, I still missed Visual Studio for about a couple of months. I would go
 
 Here are some of the Rider features which I liked the most:
 
-- **Rider = IntelliJ IDEA + ReSharper** Rider comes with all the goodies of ReShaper without the performance tax. For the developers who cannot live without ReSharper, this can be huge.
+- **Rider = IntelliJ IDEA + ReSharper** Rider comes with all the goodies of ReShaper without the performance tax. For the developers who cannot live without ReSharper, this can be huge.
 
-![](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/b06b2-dotnet-rider-is-intellij-plus-resharper.png)
+![](/wp-content/uploads/2022/12/b06b2-dotnet-rider-is-intellij-plus-resharper.png)
 
 *Rider = IntelliJ IDEA + ReSharper*
 
-- **Faster build time**: Rider can improve the build time drastically as compared to Visual Studio by applying heuristics to only build the projects that need to be updated. It can be a real performance booster for large solutions.  This [post](https://blog.jetbrains.com/dotnet/2017/05/24/incremental-build-rider/) explains the incremental build feature in details.
+- **Faster build time**: Rider can improve the build time drastically as compared to Visual Studio by applying heuristics to only build the projects that need to be updated. It can be a real performance booster for large solutions.  This [post](https://blog.jetbrains.com/dotnet/2017/05/24/incremental-build-rider/) explains the incremental build feature in details.
 
 Note: This feature was already available with ReSharper Build. So, if you are using ReSharper build instead of Visual Studio build management, then you might be already familiar with this.
 
 - **Seamless external source debugging:** One of the features I liked about Rider was debugging external libraries/ nuget packages seamlessly like they are part of your code. And when you do not need to debug external source, you can turn off the feature.
 
-![](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/bc593-enableexternalsourcedebug-1.jpg?w=1024&h=739)
+![](/wp-content/uploads/2022/12/bc593-enableexternalsourcedebug-1.jpg)
 
 *Enable external source debug option*
 
@@ -76,11 +76,11 @@ Note: This feature was already available with ReSharper Build. So, if you are us
 
 - **Project Properties:** The project properties dialog in Rider supports the latest features of the new SDK project such as multi-target, setting language version, Nuget properties etc.
 
-![](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/4397d-projectfeatures.png)
+![](/wp-content/uploads/2022/12/4397d-projectfeatures.png)
 
 *Project properties options in Rider*
 
-- **Event Log, Terminal window, create gist etc.:** Rider comes up with an Event log window which the logs every event that happens with in the IDE. It also has a built-in Terminal and some excellent little features such create GitHub Gists from within the IDE. One other thing that impressed me was the ability to create custom “Run/Debug” templates. It offers much more than running a single project or “Multiple startup projects” option in Visual Studio.
+- **Event Log, Terminal window, create gist etc.:** Rider comes up with an Event log window which the logs every event that happens with in the IDE. It also has a built-in Terminal and some excellent little features such create GitHub Gists from within the IDE. One other thing that impressed me was the ability to create custom “Run/Debug” templates. It offers much more than running a single project or “Multiple startup projects” option in Visual Studio.
 
 ### Rider is not perfect
 
@@ -88,7 +88,7 @@ It is not that Rider is perfect. In fact, far from it. It has its flaws. Here ar
 
 - There were a couple of instances where UI froze, and I had to restart the Rider.
 
-![](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/c0f04-uifreezerider.png)
+![](/wp-content/uploads/2022/12/c0f04-uifreezerider.png)
 
 *Rider too does hang sometimes*
 

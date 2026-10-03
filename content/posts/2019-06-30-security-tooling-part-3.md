@@ -14,7 +14,7 @@ summary: "Disclaimer: This post is not an endorsement or opposition of any produ
 
 This is Part-3 and final part of my blog series on Static Analysis Software Testing (SAST) tooling.
 
-In the [Part-2](https://ankitvijaydotin.wordpress.com/2019/06/26/security-tooling-part-2/), I described our selection criteria to select an alternate to Veracode and how we narrow down our search to just few tools. In this post I will describe how we came about selecting the winner.
+In the [Part-2](/2019/06/26/security-tooling-part-2/), I described our selection criteria to select an alternate to Veracode and how we narrow down our search to just few tools. In this post I will describe how we came about selecting the winner.
 
 #### The Dilemma
 
@@ -57,4 +57,4 @@ Here are few reasons why we chose to go for Kiuwan:
 
 Whether or not Kiuwan would turned out to be a true to its hype, only time will tell. But as they say, well begun is half done. So we are keeping our fingers crossed. 🙂
 
-> Photo by [Fauzan Saari](https://unsplash.com/@fznsr_?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/search/photos/winner?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+> Photo by [Fauzan Saari](https://unsplash.com/@fznsr_?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/search/photos/winner?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)

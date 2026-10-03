@@ -10,7 +10,7 @@ tag: ["net", "net-core", "nuget"]
 summary: "This posts talks about some of the standards and practices we use for our internal NuGet packages in our organization."
 ---
 
-NuGet, the popular package manager for .NET, has been around since 2010. Over the years, its usage has grown exponentially. With the evolution of [.NET Standard class library](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-visual-studio?tabs=netcore-cli) creating a NuGet package is as easy as pie. You no longer need to define a separate nuspec file. NuGet package properties can be defined within the project files.
+NuGet, the popular package manager for .NET, has been around since 2010. Over the years, its usage has grown exponentially. With the evolution of [.NET Standard class library](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-visual-studio?tabs=netcore-cli) creating a NuGet package is as easy as pie. You no longer need to define a separate nuspec file. NuGet package properties can be defined within the project files.
 
 As part of our work, we create several NuGet packages for our internal teams. We need to provide a consistent experience for all our NuGet packages. To maintain consistency, we have defined a template that every NuGet package needs to derive from.
 
@@ -35,14 +35,14 @@ error CS1591: Missing XML comment for publicly visible type or member ‘TypeNam
 
 ### Other stuff
 
-- **SourceLink**: Along with the above properties, we enable Source Link to our Nuget packages. Source Link allows users to step into the source code of the NuGet package. You can find more information on Source Link [here](https://github.com/dotnet/sourcelink).
+- **SourceLink**: Along with the above properties, we enable Source Link to our Nuget packages. Source Link allows users to step into the source code of the NuGet package. You can find more information on Source Link [here](https://github.com/dotnet/sourcelink).
 
 - **Versioning**: Even though our NuGet packages are for internal distribution, we are still very disciplined with our versioning. We use [semver](https://semver.org/) through [GitVersion](https://gitversion.net/docs/more-info/version-increments) to version our packages. We increment the major, minor and patch versions through commit messages. We also try to keep our packages backward compatible as much as possible and introduce a breaking change only when necessary.
 
-- **Directory.Build.props**: I must admit did not know about [Directory.Build.props](https://docs.microsoft.com/en-us/visualstudio/msbuild/customize-your-build?view=vs-2019) until very recently before my colleague, Werner suggested to use it. Directory.Build.props file allows us to customize the build. We can add a new property to every project in the solution by defining it in a single file with this name in the root folder. All the common Nuget properties within the solution can be added to the Directory.Build.props file. This helps us to avoid repetition and maintain consistency.
+- **Directory.Build.props**: I must admit did not know about [Directory.Build.props](https://docs.microsoft.com/en-us/visualstudio/msbuild/customize-your-build?view=vs-2019) until very recently before my colleague, Werner suggested to use it. Directory.Build.props file allows us to customize the build. We can add a new property to every project in the solution by defining it in a single file with this name in the root folder. All the common Nuget properties within the solution can be added to the Directory.Build.props file. This helps us to avoid repetition and maintain consistency.
 
 - **NuGetReferenceSwitcher:** [NugetReferenceSwitcher](https://github.com/RicoSuter/NuGetReferenceSwitcher) is a Visual Studio extension that allows us to switch between project reference and NuGet. This helps us to view the Nuget source code and allows us to develop as if NuGet package is part of our solution.
 
 These are some of the standards and practices we use for our NuGet packages. Hope you find this useful. 🙂
 
-> Photo by [Brandable Box](https://unsplash.com/@brandablebox?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/package?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+> Photo by [Brandable Box](https://unsplash.com/@brandablebox?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/package?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)

@@ -16,9 +16,9 @@ For those who have not worked on either of these database engines, here is a lit
 
 **[Azure SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)** is SQL Server compatible Database as Service on Microsoft’s cloud, Azure.
 
-[Amazon Aurora](https://aws.amazon.com/rds/aurora/) is a MySQL and PostgreSQL-compatible relational database built on Amazon cloud, AWS. We chose to use MySQL flavor for Amazon Aurora.
+[Amazon Aurora](https://aws.amazon.com/rds/aurora/) is a MySQL and PostgreSQL-compatible relational database built on Amazon cloud, AWS. We chose to use MySQL flavor for Amazon Aurora.
 
-There was an option to use [Amazon RDS for SQL Server](https://aws.amazon.com/rds/sqlserver/). However, there was a significant price difference between SQL Server and Aurora. We realized that the cost and effort for the rewrite would be far less than hosting on Amazon RDS for SQL Server in the longer run.
+There was an option to use [Amazon RDS for SQL Server](https://aws.amazon.com/rds/sqlserver/). However, there was a significant price difference between SQL Server and Aurora. We realized that the cost and effort for the rewrite would be far less than hosting on Amazon RDS for SQL Server in the longer run.
 
 The migration was a great learning experience for someone like me who has not kept his foot outside Microsoft Technologies or Azure for most of part of his career.
 
@@ -40,7 +40,7 @@ For MySQL, we ended up using [MySQL Workbench](https://www.mysql.com/products/wo
 
 This was a little bit surprising for me since with SQL Server query syntax has mostly been backward compatible. To support the previous version of MySQL I had to update the MySQL default target version by going to `Edit -> Preferences -> Modeling -> MySQL` and setting the version to `5.7.28`.
 
-![](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/8b705-capture-1.png)
+![](/wp-content/uploads/2022/12/8b705-capture-1.png)
 
 *Default Target MySQL Version setting*
 

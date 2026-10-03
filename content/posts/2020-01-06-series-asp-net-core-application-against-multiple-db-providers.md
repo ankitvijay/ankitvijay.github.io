@@ -13,6 +13,6 @@ In this series I have talked about how we migrated an existing application to ru
 
 Posts in this series:
 
-<https://atomic-temporary-110830594.wpcomstaging.com/2019/12/23/running-an-asp-net-core-application-against-multiple-db-providers-part-1/>
+[https://atomic-temporary-110830594.wpcomstaging.com/2019/12/23/running-an-asp-net-core-application-against-multiple-db-providers-part-1/](/2019/12/23/running-an-asp-net-core-application-against-multiple-db-providers-part-1/)
 
-<https://atomic-temporary-110830594.wpcomstaging.com/2020/01/04/running-an-asp-net-core-application-against-multiple-db-providers-part-2/>
+[https://atomic-temporary-110830594.wpcomstaging.com/2020/01/04/running-an-asp-net-core-application-against-multiple-db-providers-part-2/](/2020/01/04/running-an-asp-net-core-application-against-multiple-db-providers-part-2/)

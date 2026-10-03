@@ -60,4 +60,4 @@ An [Event-Driven architecture](https://docs.microsoft.com/en-us/azure/architectu
 
 Cosmos DB has its flaws. But things are changing at God’s speed. In spite of issues we encountered while moving to Cosmos DB, I strongly feel it is a step in the right direction. Cosmos DB will go strength to strength from here and I would definitely recommend it give it a try.
 
-> Featured Photo by [Jeremy Thomas](https://unsplash.com/@jeremythomasphoto?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/cosmos?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+> Featured Photo by [Jeremy Thomas](https://unsplash.com/@jeremythomasphoto?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/cosmos?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)

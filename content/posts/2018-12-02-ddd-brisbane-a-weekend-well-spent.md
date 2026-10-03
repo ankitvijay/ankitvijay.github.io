@@ -16,7 +16,7 @@ Attending a conference on a weekend can be a challenging discussion with the spo
 
 This was my first time at a DDD conference, but certainly not the last. I thoroughly enjoyed the experience, listening to excellent speakers, food, free coffee, and goodies.
 
-![](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/5b8d5-img_20181202_055650.jpg)
+![](/wp-content/uploads/2022/12/5b8d5-img_20181202_055650.jpg)
 
 My DDD attendee card
 
@@ -25,7 +25,7 @@ Here are my few key takeaways from the conference:
 - The conference was very well organized. At the registration process was smooth, the organizers were friendly and helpful.
 - Excellent food, free coffee, a lot of goodies and so many prizes to be won (unfortunately, I did not win any).
 
-![](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/4fad6-img_20181202_055451-1.jpg?w=225&h=300) ![](/wp-content/uploads/2018/12/IMG_20181202_062934.jpg)
+![](/wp-content/uploads/2022/12/4fad6-img_20181202_055451-1.jpg) ![](/wp-content/uploads/2018/12/IMG_20181202_062934.jpg)
 
 - It was a “green” conference in the true sense. The attendees were encouraged to bring their own coffee mugs. The coffee mugs, including the lid, were recyclable. The food plates, cutlery was made of bamboo, hence compostable. The reusable bags (or as they called it “swag bags”) were made of waste cloth by the local community.
 
@@ -48,7 +48,7 @@ My Swag Bag
 
 - The speaker line up was a mix of first-timers and experienced speakers. I enjoyed all the sessions which I attended.
 
-![](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/1d848-speakers.jpg)
+![](/wp-content/uploads/2022/12/1d848-speakers.jpg)
 
 - Enough gap between the two sessions – there was no information overload.
 - There was something to learn in every session. None of them were a waste of time.
@@ -56,7 +56,7 @@ My Swag Bag
 - It was great opportunity to interact with fellow developers
 - Special mention to keynote speaker Jessica Kerr. But the highlight of the day for me was locknote from Neal Ford on “Support Constant Change”. There was just so much to learn in his 45 mins talk.
 
-![](https://atomic-temporary-110830594.wpcomstaging.com/wp-content/uploads/2018/12/IMG_20181201_171313.jpg)
+![](/wp-content/uploads/2018/12/IMG_20181201_171313.jpg)
 
 Hit the nail..
 

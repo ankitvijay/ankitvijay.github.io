@@ -14,19 +14,19 @@ As I have written in my previous posts, we are working on a greenfield solution 
 
 ### Where we started
 
-Now, when we started our development there were not many consumers of our microservices. Things were still simple. We simply exposed the Swagger specification along with some guidelines on how to consume the API. This was enough for anyone who needs to consume our API. We did not feel the need to spend effort in creating a client library for our API. Each consumer had their own “version” of integration Rest client to talk to our API. The consumers would auto-generate methods and models through tools such as [NSwagger](https://github.com/rmaclean/nSwagger) or sometimes simply duplicate the models and create custom [Typed HttpClient](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#how-to-use-typed-clients-with-httpclientfactory)to talk to our API. There was not one single consistent way of talking to our Rest service.
+Now, when we started our development there were not many consumers of our microservices. Things were still simple. We simply exposed the Swagger specification along with some guidelines on how to consume the API. This was enough for anyone who needs to consume our API. We did not feel the need to spend effort in creating a client library for our API. Each consumer had their own “version” of integration Rest client to talk to our API. The consumers would auto-generate methods and models through tools such as [NSwagger](https://github.com/rmaclean/nSwagger) or sometimes simply duplicate the models and create custom [Typed HttpClient](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#how-to-use-typed-clients-with-httpclientfactory)to talk to our API. There was not one single consistent way of talking to our Rest service.
 
-![](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/a2065-image.png)
+![](/wp-content/uploads/2022/12/a2065-image.png)
 
 *Our initial design*
 
 ### Issues
 
-The complexity of our system increased over a period of time. We had multiple consumers for our API. There were cross-cutting concerns such as authentication, authorization, custom headers, logging, etc. which every client needed to adhere to. The models/ requests became complex. It started to become difficult for each client to keep the pace of new features or the changes introduced to our API. We had some healthy discussions within our team and we felt the need of exposing a client library as a **NuGet package** along with our Rest API.
+The complexity of our system increased over a period of time. We had multiple consumers for our API. There were cross-cutting concerns such as authentication, authorization, custom headers, logging, etc. which every client needed to adhere to. The models/ requests became complex. It started to become difficult for each client to keep the pace of new features or the changes introduced to our API. We had some healthy discussions within our team and we felt the need of exposing a client library as a **NuGet package** along with our Rest API.
 
-The concept of the client library is not new. It has been around forever in some form or the other. For example, at the time of web services, we had [WSDL](https://www.w3schools.com/XML/xml_wsdl.asp) document to describe the web service. We could auto-generate the client methods to make a call over the wire. There are also plenty of examples of the client libraries (or SDKs) from tech gaints such as Microsoft, Amazon, Google, etc.
+The concept of the client library is not new. It has been around forever in some form or the other. For example, at the time of web services, we had [WSDL](https://www.w3schools.com/XML/xml_wsdl.asp) document to describe the web service. We could auto-generate the client methods to make a call over the wire. There are also plenty of examples of the client libraries (or SDKs) from tech gaints such as Microsoft, Amazon, Google, etc.
 
-![](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2022/12/ac11a-image-2.png)
+![](/wp-content/uploads/2022/12/ac11a-image-2.png)
 
 *The updated design*
 
@@ -44,11 +44,11 @@ With the client library, we could to do a basic model validation even before the
 
 #### Versioning
 
-The client library provided us with the ability to handle versioning better. Since, we controlled the client library we could **Obsolete**a method, provide a new implementation, have different overloads for the same REST endpoint. For the client, it was a simple method call but under the hood, we were able to format the request any way we liked. Since all the consumers we have are internal application it was easier for us to control when the client upgrades to the newer package.
+The client library provided us with the ability to handle versioning better. Since, we controlled the client library we could **Obsolete**a method, provide a new implementation, have different overloads for the same REST endpoint. For the client, it was a simple method call but under the hood, we were able to format the request any way we liked. Since all the consumers we have are internal application it was easier for us to control when the client upgrades to the newer package.
 
 #### Cross-cutting concerns
 
-The client library provided us a consistent way of handling cross-cutting concerns such as authentication, authorization, and logging. The client simply had to inject our “Typed” client service and we were able to hook authentication token, correlation id, custom headers, etc. to the request through **HttpHandlers**.
+The client library provided us a consistent way of handling cross-cutting concerns such as authentication, authorization, and logging. The client simply had to inject our “Typed” client service and we were able to hook authentication token, correlation id, custom headers, etc. to the request through **HttpHandlers**.
 
 #### **Caching**
 
@@ -56,7 +56,7 @@ The client library provided us with an opportunity to have a consistent and corr
 
 #### Resilience and Fault Tolerance
 
-The client library provided us with the way of defining retry policies, timeout and implementing circuit-breaker pattern. This helps to improve the resiliency of our application. We could use a framework such as [Polly](https://www.hanselman.com/blog/AddingResilienceAndTransientFaultHandlingToYourNETCoreHttpClientWithPolly.aspx) under the hood without leaking the details to the client.
+The client library provided us with the way of defining retry policies, timeout and implementing circuit-breaker pattern. This helps to improve the resiliency of our application. We could use a framework such as [Polly](https://www.hanselman.com/blog/AddingResilienceAndTransientFaultHandlingToYourNETCoreHttpClientWithPolly.aspx) under the hood without leaking the details to the client.
 
 #### Change implementations under the hood
 

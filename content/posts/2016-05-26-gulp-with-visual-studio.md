@@ -26,12 +26,12 @@ It was a Single Page Application built on TypeScript, Knockout JS, CSS. Now, sin
 ## **Configure Gulp in Visual Studio**
 
 - Right click your Visual Studio project, and click new item. Search for NPM template. and select **NPM Configuration File.** This will add **package.json** file to your Visual Studio project.
-  ![add-npm-package](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2016/05/add-npm-package.png)
+  ![add-npm-package](/wp-content/uploads/2016/05/add-npm-package.png)
 - Similarly, add **Gulp Configuration File** from installed template. This will add a file with name **gulpfile.js** to the Visual Studio Project. You will add your gulp tasks to concatenate and minify in this file.
-  ![add-gulp-file.PNG](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2016/05/add-gulp-file.png)
+  ![add-gulp-file.PNG](/wp-content/uploads/2016/05/add-gulp-file.png)
 - Now, add a JavaScript file with name **gulp.config.** This is a configuration file which will be later used by our gulpfile. It contains configuration settings like html source, js/css files source that needs to be minified, name of minified js file etc. A sample gulp.config file is shown below:
 
-  ```
+  ```csharp
   module.exports = function() {
           var config = {
           htmlSource: [
@@ -81,7 +81,7 @@ It was a Single Page Application built on TypeScript, Knockout JS, CSS. Now, sin
 - Once the packages are installed, go to package.json and you will see the installed packages under devDependencies. You will also notice a folder node_modules created under your project where all the packages are installed.
 - Next, we will start writing gulp tasks in gulpfile.js. Go to gulpfile.js and add the required packages you need for your tasks.
 
-  ```
+  ```csharp
   var gulp = require("gulp");
   var concat = require("gulp-concat");
   var uglify = require("gulp-uglify");
@@ -131,7 +131,7 @@ It was a Single Page Application built on TypeScript, Knockout JS, CSS. Now, sin
   ```
 - With this we have created all our required gulp tasks. Next step is to run these tasks at the time of build. Go to **Task Runner Explorer,** right click task min-all-css, select **Bindings -> Before Build**. This will tell Visual Studio to run this task before the build starts. Similarly, add tasks min-all-js, min-inject-css, min-inject-js. Make sure these tasks are added in correct order.
 
-  ![Gulp-task-binding.png](https://ankitvijaydotin.wordpress.com/wp-content/uploads/2016/05/gulp-task-binding.png)
+  ![Gulp-task-binding.png](/wp-content/uploads/2016/05/gulp-task-binding.png)
 
   Gulp task binding
 - That’s it. Now, just build the application. And you will see the gulp tasks are run before the build starts. If you go to your html source file, you will see the minified css and js files are injected into your html file.
