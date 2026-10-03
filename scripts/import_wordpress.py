@@ -8,6 +8,7 @@ downloads every referenced image, converts post HTML to Markdown and writes:
   content/<page-slug>.md
   data/comments/p<post id>.json
   data/terms.json                      (category/tag display names)
+  import-raw/*.json                    (raw API responses, for offline re-runs)
   static/wp-content/uploads/YYYY/MM/<file>
 
 Usage:
@@ -37,22 +38,34 @@ FIXTURE = os.environ.get("WP_FIXTURE")
 ROOT = Path(__file__).resolve().parent.parent
 UA = {"User-Agent": "wp-to-hugo-import/1.0"}
 
-# Any URL that points at the media library, whichever host serves it.
+# Hosts that have served this site over the years; links to them become local links.
+OLD_HOSTS = (
+    r"(?:www\.)?" + re.escape(SITE) + r"|"
+    + re.escape(FILES_HOST.replace(".files.", ".")) + r"|"
+    r"atomic-temporary-\d+\.wpcomstaging\.com"
+)
+# Any URL that points at the media library, whichever host or CDN serves it.
 MEDIA_RE = re.compile(
     r"https?://(?:i\d\.wp\.com/)?(?:"
-    + re.escape(SITE) + r"/wp-content/uploads|"
-    + re.escape(FILES_HOST) + r"|"
+    r"(?:" + OLD_HOSTS + r")/wp-content/uploads|"
     r"[a-z0-9-]+\.files\.wordpress\.com)"
     r"/(\d{4}/\d{2}/[^\s\"'?)<>]+)(\?[^\s\"')<>]*)?",
     re.I,
 )
+EXT_LANG = {
+    "cs": "csharp", "csx": "csharp", "json": "json", "xml": "xml", "config": "xml", "csproj": "xml",
+    "props": "xml", "targets": "xml", "nuspec": "xml", "ps1": "powershell", "sh": "bash",
+    "bash": "bash", "bat": "bat", "cmd": "bat", "js": "javascript", "ts": "typescript",
+    "yml": "yaml", "yaml": "yaml", "sql": "sql", "html": "html", "cshtml": "html", "css": "css",
+    "md": "markdown", "py": "python", "tf": "hcl", "dockerfile": "docker", "http": "http",
+}
 LANG_MAP = {
     "jscript": "javascript", "js": "javascript", "plain": "", "text": "",
     "c#": "csharp", "cs": "csharp", "ps": "powershell", "shell": "bash",
     "html": "html", "xml": "xml", "yml": "yaml",
 }
 warnings = []
-media = set()
+media = {}  # local path -> original URLs seen for it
 
 
 def warn(msg):
@@ -73,6 +86,22 @@ def get_json(url):
     raise RuntimeError(f"Could not fetch {url}")
 
 
+def scrub(value):
+    """Drop private-looking fields before raw API responses are saved in the repository."""
+    if isinstance(value, dict):
+        return {k: scrub(v) for k, v in value.items()
+                if k.lower() not in ("email", "ip", "ip_address", "meta", "login", "nice_name")}
+    if isinstance(value, list):
+        return [scrub(v) for v in value]
+    return value
+
+
+def dump_raw(name, items):
+    out = ROOT / "import-raw"
+    out.mkdir(exist_ok=True)
+    (out / f"{name}.json").write_text(json.dumps(scrub(items), ensure_ascii=False), encoding="utf-8")
+
+
 def fetch_items(kind):
     """kind is 'post' or 'page'."""
     if FIXTURE:
@@ -85,6 +114,7 @@ def fetch_items(kind):
         items += batch
         print(f"  fetched {len(items)}/{data.get('found', '?')} {kind}s")
         if len(batch) < 100:
+            dump_raw(f"{kind}s", items)
             return items
         page += 1
 
@@ -100,6 +130,7 @@ def fetch_comments():
             batch = data.get("comments", [])
             items += batch
             if len(batch) < 100:
+                dump_raw("comments", items)
                 return items
             offset += 100
     except Exception as e:  # comments are optional; never fail the import over them
@@ -111,7 +142,11 @@ def localise_media(text):
     """Point media URLs at /wp-content/uploads/... and remember them for download."""
     def repl(m):
         path = m.group(1).rstrip(".,;")
-        media.add(path)
+        original = html.unescape(m.group(0))
+        urls = media.setdefault(path, [])
+        for url in (original.split("?")[0], original):
+            if url not in urls:
+                urls.append(url)
         return "/wp-content/uploads/" + path
     return MEDIA_RE.sub(repl, text or "")
 
@@ -123,10 +158,47 @@ def code_language(tag):
         classes += " " + " ".join(code.get("class", []))
     m = re.search(r"brush:\s*([\w#+-]+)", classes) or re.search(r"language-([\w#+-]+)", classes)
     lang = (tag.get("data-lang") or (m.group(1) if m else "")).lower()
-    return LANG_MAP.get(lang, lang)
+    if tag.has_attr("data-lang") or m:
+        return LANG_MAP.get(lang, lang)
+    return guess_language(tag.get_text())
+
+
+def guess_language(code):
+    """Best-effort language for code blocks WordPress stored without one."""
+    c = code.strip()
+    if not c:
+        return ""
+    first = c.splitlines()[0].strip()
+    if re.match(r"^(<\?xml|<[A-Za-z][\w:.-]*[\s>/])", c) and c.rstrip().endswith(">"):
+        return "html" if re.search(r"<(html|div|script|head|body|span|a)\b", c, re.I) else "xml"
+    if c[0] in "{[" and c[-1] in "}]" and re.search(r'"\s*:', c):
+        return "json"
+    if re.search(r"\b(SELECT|INSERT INTO|UPDATE|DELETE FROM|CREATE TABLE|ALTER TABLE)\b", c) and not re.search(r"[{};]\s*$", first):
+        return "sql"
+    if re.search(r"(^|\n)\s*(\$[A-Za-z_]\w*\s*=|(Get|Set|New|Remove|Add|Install|Import|Invoke|Write)-[A-Z]\w+)", c):
+        return "powershell"
+    if re.search(r"\b(public|private|protected|internal)\s+(static\s+|async\s+|sealed\s+|abstract\s+|override\s+|readonly\s+)*[\w<>\[\]?,. ]+\s+\w+\s*[({=;]", c) \
+            or re.search(r"(^|\n)\s*(using\s+[\w.]+;|namespace\s+[\w.]+|var\s+\w+\s*=|await\s|\[\w+(\(.*\))?\]\s*$)", c) \
+            or re.search(r"\bnew\s+\w+(<[\w, <>]+>)?\(", c) \
+            or re.search(r"(^|\n)\s*(static|void|class|interface|enum|foreach|try)\b", c):
+        return "csharp"
+    if re.search(r"(^|\n)\s*(dotnet|git|npm|docker|az|curl|cd|sudo|choco|nuget)\s", c):
+        return "bash"
+    if re.search(r"(^|\n)\s*(const|let|function)\s|=>\s*{|console\.log", c):
+        return "javascript"
+    if re.search(r"(^|\n)[\w-]+:\s*(\S.*)?$", c) and not re.search(r"[;{}]", c):
+        return "yaml"
+    return ""
 
 
 class Converter(MarkdownConverter):
+    def process_text(self, el, *args, **kwargs):
+        text = super().process_text(el, *args, **kwargs)
+        # Literal "<" in prose (List<string>, <script>) must not turn into live HTML.
+        if not any(p.name in ("pre", "code", "kbd", "samp") for p in el.parents):
+            text = text.replace("<", "&lt;")
+        return text
+
     def convert_pre(self, el, text, *args, **kwargs):
         code = el.get_text().replace("\r\n", "\n").strip("\n")
         fence = "```"
@@ -152,6 +224,32 @@ def to_markdown(content_html, where):
                 keep_raw(node, f'<script src="{src}"></script>')
             else:
                 node.decompose()
+
+    # WordPress serves embedded GitHub gists pre-rendered as a table of lines.
+    for gist_file in soup.select("div.gist .gist-file"):
+        lines = [td.get_text() for td in gist_file.select("td.blob-code")]
+        links = gist_file.select(".gist-meta a")
+        named = [a for a in links if "#file-" in a.get("href", "")]
+        name = named[0].get_text(strip=True) if named else ""
+        href = named[0]["href"] if named else (links[0]["href"] if links else "")
+        if not lines:
+            if href:
+                para = soup.new_tag("p")
+                link = soup.new_tag("a", href=href)
+                link.string = name or "View this gist on GitHub"
+                para.append(link)
+                gist_file.replace_with(para)
+            continue
+        ext = name.lower().rsplit(".", 1)[-1] if name else ""
+        pre = soup.new_tag("pre")
+        pre["data-lang"] = EXT_LANG.get(ext, "")
+        if ext not in EXT_LANG:
+            guessed = guess_language("\n".join(lines))
+            pre["data-lang"] = guessed
+        pre.string = "\n".join(lines)
+        gist_file.replace_with(pre)
+    for node in soup.select("div.gist"):
+        node.unwrap()
 
     for node in soup.select("div.gist-oembed, [data-gist]"):
         gist = node.get("data-gist", "").replace(".json", ".js")
@@ -203,11 +301,14 @@ def to_markdown(content_html, where):
         fig.attrs = {}
 
     for a in soup.find_all("a", href=True):
-        a["href"] = re.sub(rf"^https?://(www\.)?{re.escape(SITE)}/", "/", a["href"])
+        a["href"] = re.sub(rf"^https?://(?:{OLD_HOSTS})/", "/", a["href"], flags=re.I)
 
     md = Converter(heading_style="ATX", bullets="-", escape_asterisks=False,
                    escape_underscores=False, strip=["span"]).convert_soup(soup)
     md = re.sub(r"RAWHTMLBLOCK(\d+)END", lambda m: raw[int(m.group(1))], md)
+    md = md.replace("\xa0", " ")  # non-breaking spaces break copied code
+    if re.search(r"^# ", md, flags=re.M):  # the page title is the only h1
+        md = demote_headings(md)
     md = re.sub(r"[ \t]+\n", "\n", md)
     md = re.sub(r"\n{3,}", "\n\n", md).strip() + "\n"
 
@@ -218,6 +319,17 @@ def to_markdown(content_html, where):
     if "{{<" in md.replace("{{</*", "") or "{{%" in md.replace("{{%/*", ""):
         warn(f"{where}: contains an unmatched '{{{{<' or '{{{{%' that may break the build")
     return md
+
+
+def demote_headings(md):
+    out, in_fence = [], False
+    for line in md.split("\n"):
+        if line.startswith("```"):
+            in_fence = not in_fence
+        elif not in_fence and re.match(r"#{1,5} ", line):
+            line = "#" + line
+        out.append(line)
+    return "\n".join(out)
 
 
 def clean_text(value):
@@ -316,18 +428,25 @@ def download_media():
             skipped += 1
             continue
         dest.parent.mkdir(parents=True, exist_ok=True)
-        for url in (f"https://{FILES_HOST}/{path}", f"https://{SITE}/wp-content/uploads/{path}"):
+        candidates = media[path] + [f"https://{FILES_HOST}/{path}",
+                                    f"https://{SITE}/wp-content/uploads/{path}",
+                                    f"https://i0.wp.com/{SITE}/wp-content/uploads/{path}"]
+        for url in candidates:
             try:
                 req = urllib.request.Request(url, headers=UA)
                 with urllib.request.urlopen(req, timeout=120) as r:
-                    dest.write_bytes(r.read())
+                    kind = r.headers.get("Content-Type", "")
+                    data = r.read()
+                if kind.startswith("text/html") or not data:
+                    continue
+                dest.write_bytes(data)
                 ok += 1
                 break
             except Exception:
                 continue
         else:
             failed += 1
-            warn(f"could not download media {path}")
+            warn(f"could not download media {path} (first seen as {media[path][0]})")
     return ok, skipped, failed
 
 
