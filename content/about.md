@@ -2,8 +2,8 @@
 title: "About"
 date: "2016-05-02T12:14:08+10:00"
 lastmod: "2020-07-13T07:55:35+10:00"
-url: "/about-2/"
-slug: "about-2"
+url: "/about/"
+slug: "about"
 wp_id: 257555
 layout: "page"
 ---
