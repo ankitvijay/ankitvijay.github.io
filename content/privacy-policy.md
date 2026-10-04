@@ -1,57 +1,47 @@
 ---
 title: "Privacy Policy"
 date: "2021-08-15T15:37:02+10:00"
-lastmod: "2021-08-15T15:37:03+10:00"
+lastmod: "2026-10-04T14:20:00+10:00"
 url: "/privacy-policy/"
 slug: "privacy-policy"
-wp_id: 257460
 layout: "page"
+manual: true
 ---
 
-## Who we are
+*Last updated: 4 October 2026*
 
-Our website address is <https://atomic-temporary-110830594.wpcomstaging.com>.
+## Who runs this site
 
-## Comments
+This is the personal blog of Ankit Vijay, at <https://ankitvijay.net>. If you have a question about this policy or about anything on the site that relates to you, email me at vijayankit@outlook.com.
 
-When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor’s IP address and browser user agent string to help spam detection.
+## The short version
 
-An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: <https://automattic.com/privacy/>. After approval of your comment, your profile picture is visible to the public in the context of your comment.
+This is a static website. It has no accounts, no comment form, no contact form, no advertising, no analytics and no tracking scripts, and it does not set cookies. I do not collect personal information from you when you read it.
 
-## Media
+## Hosting
 
-If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.
+The site is hosted on GitHub Pages. Like any web host, GitHub receives technical information when your browser requests a page, including your IP address, and may keep it in logs for security and to operate the service. I do not have access to those logs. GitHub's handling of that information is described in the [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
 
-## Cookies
+## Content loaded from other websites
 
-If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.
+Most pages load everything from this site. A small number of pages display an image or badge served directly by another website, such as GitHub, Stack Exchange, Gravatar or Buy Me a Coffee. When your browser loads one of those, that website receives your IP address and basic browser details, as it would if you visited it directly, and its own privacy policy applies.
 
-If you visit our login page, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.
+Posts also link to other websites. I am not responsible for the content or privacy practices of sites you reach by following a link.
 
-When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select “Remember Me”, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.
+## Comments on older posts
 
-If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.
+This blog was hosted on WordPress.com until October 2026, and readers could comment there. Comments left during that time are shown under the posts they belong to, with the name the commenter chose and the date. Email addresses and IP addresses were not carried over and are not published.
 
-## Embedded content from other websites
+Commenting is now closed. If a comment of yours appears here and you would like it changed or removed, email me and I will do so.
 
-Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.
+## Email subscriptions
 
-These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.
+If you subscribed to new posts by email while the blog was on WordPress.com, that subscription was managed by WordPress.com (Automattic) under [its privacy policy](https://automattic.com/privacy/). This site does not hold or use that subscriber list. To follow new posts, use the [RSS feed](/feed.xml).
 
-## Who we share your data with
+## Your rights
 
-If you request a password reset, your IP address will be included in the reset email.
+Because this site does not collect personal information from readers, there is normally nothing held about you to access, correct or delete. The exception is a comment carried over from the old site, which I will amend or remove on request.
 
-## How long we retain your data
+## Changes to this policy
 
-If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.
-
-For users that register on our website (if any), we also store the personal information they provide in their user profiles. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.
-
-## What rights you have over your data
-
-If you have an account on this site or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.
-
-## Where we send your data
-
-Visitor comments may be checked through an automated spam detection service.
+If the site changes in a way that affects your privacy, for example by adding analytics or comments, I will update this page and the date at the top.
