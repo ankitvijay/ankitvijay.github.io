@@ -1,28 +1,31 @@
 ---
 title: "About"
-date: "2016-05-02T02:14:08+00:00"
-lastmod: "2017-12-17T10:41:40+10:00"
-url: "/about/"
-slug: "about"
-wp_id: 2
+date: "2016-05-02T12:14:08+10:00"
+lastmod: "2020-07-13T07:55:35+10:00"
+url: "/about-2/"
+slug: "about-2"
+wp_id: 257555
 layout: "page"
 ---
 
-![1819468](/wp-content/uploads/2017/12/1819468.jpg)I hold around 9 **years** of experience in application development & consulting. I have worked in various roles ranging from Individual Contributor, Consultant, Dev-Ops, and Development Lead depending on the nature of engagement. My specialization lies in diversified Microsoft Technologies and Products.
+![](/wp-content/uploads/2022/12/93795-updated-profile.png)
 
-I have experience of carrying out development in .NET, Skype for Business, SignalR, Microsoft Azure, .NET Core, WPF, Windows 8, Windows Phone, MVC, Angular JS, Knockout JS, Typescript and Web API. I have good knowledge of patterns and frameworks like CQRS, PRISM, Caliburn.Micro.  I have experience of working in Agile (Scrum and Kanban) methodology following both TDD and BDD.
+I’m Ankit Vijay. I hold around 12 years of experience in application development & consulting. I’m a [Dotnet Foundation](https://twitter.com/dotnetfdn) member. I have worked in various roles ranging from Individual Contributor, DevOps, Solution Architect, Consultant, and Dev Lead depending on the nature of the project.
 
-I also have a good understanding of Visual Studio, VSTS, Bitbucket, SVN, JIRA and Team City.  Additionally, I have built highly scalable solutions on Azure, envision and develop applications for­ Windows 8 and Windows phone platforms.
+I am passionate about technology and write about the topics I love.
 
-I strongly believe in
+### My Stack Exchange Profile
 
-- Unit testing your code left, right and center.
-- The developer writing UI Automation Tests and testing their code.
-- PR Code review with no exceptions. If a QA can find S1, S2 bugs in your feature, you have not done your job right.
-- Consistent coding standard throughout the project. A project is owned by **the team** NOT by an individual.
+[![profile for Ankit Vijay on Stack Exchange, a network of free, community-driven Q&A sites](https://stackexchange.com/users/flair/558688.png)](https://stackexchange.com/users/558688/ankit-vijay)
 
-#### **My Stack Overflow Profile** [profile for Ankit Vijay at Stack Overflow, Q&A for professional and enthusiast programmers](https://stackoverflow.com/users/921127/ankit-vijay)
+If you like my blogs, you can follow me on [twitter](https://twitter.com/vijayankit), [GitHub](https://github.com/ankitvijay), or subscribe to my [RSS Feed](/feed/).
 
-![cropped-img_20170903_113729854](/wp-content/uploads/2017/12/cropped-img_20170903_113729854.jpg)On the personal front, I’m from New Delhi, India. I’m currently settled in Sunshine Coast, Australia with my lovely wife and little son. It’s a peaceful, quiet place about 100 KMs from Brisbane.
+### Support
 
-I love to spend my free time with friends and family.
+Have my posts been helpful? You can extend your support 🙂
+
+[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/default-red.png)](https://www.buymeacoffee.com/ankitvijay)
+
+### Disclaimer
+
+The views expressed by me on this website are personal and do not reflect the views of my employer.
